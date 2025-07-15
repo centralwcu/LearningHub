@@ -212,6 +212,10 @@
     }
     .drag-handle:active { cursor: grabbing; opacity: 1; }
 .guide-fullscreen-topbar {
+  display: none !important;
+  }   
+/*
+.guide-fullscreen-topbar {
   position: fixed;
   top: 0; left: 0 !important; right: 20px; height: 58px;
   background: white;
@@ -219,6 +223,7 @@
  margin: 0;  
   padding: 0;
 }
+    */
 .guide-scroll-arrow {
   display: flex;                
   flex-direction: column;       
@@ -649,7 +654,7 @@ body {
 
   <!-- Fullscreen Guide Overlay -->
 <div id="guideFullscreenOverlay" class="guide-fullscreen-overlay">
-<!-- <div class="guide-fullscreen-topbar d-flex align-items-center">
+<div class="guide-fullscreen-topbar d-flex align-items-center">
   <button id="overlayBackBtn" class="btn btn-link ms-3">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="1em" height="1em"
@@ -659,7 +664,7 @@ body {
         </svg>
         Back to all guides
       </button>
-    </div> -->
+    </div>
     <div class="fullscreen-spinner" id="fullscreenSpinner">
       <i class="bi bi-arrow-repeat bi-spin"></i> Loading…
     </div>
