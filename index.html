@@ -134,6 +134,21 @@
   filter: none; /* remove shadow if you want */
 
 }
+@media (max-width:575.98px){
+  /* white mask */
+  .iframe-crop-wrapper::after{
+    content:"";
+    position:absolute;
+    bottom:-5px;
+    left:40px;          /* pull in from sides */
+    right:40px;
+    height:95px;
+    background:#fff;
+    pointer-events:none;
+    z-index:10;
+    border-radius:0;    /* ← no giant curve */
+  }
+}
     .guide-fullscreen-close { display: none; }
 
     #overlayBackBtn {
@@ -145,7 +160,7 @@
     }
 
 .guide-fullscreen-iframe {
-  display: block; width: 100%; height: 100%;
+  display: flex; width: 100%; height: 100%;
   margin: 0;
   border: none;
   will-change: transform;
@@ -211,19 +226,17 @@
       transition: opacity .2s;
     }
     .drag-handle:active { cursor: grabbing; opacity: 1; }
-.guide-fullscreen-topbar {
-  display: none !important;
-  }   
-/*
-.guide-fullscreen-topbar {
-  position: fixed;
-  top: 0; left: 0 !important; right: 20px; height: 58px;
-  background: white;
-  z-index: 10001;
- margin: 0;  
-  padding: 0;
+.guide-fullscreen-topbar{
+  position: fixed;          /* sit on top of everything   */
+  top: 0; left: 0; right: 13px;
+  height: 62px;
+  background:#fff;
+  z-index:10002;            /* higher than iFrame (9999)  */
+  display:flex;
+  align-items:center;
+  padding:0 1rem;
+  box-shadow:0 1px 6px rgba(0,0,0,.1);
 }
-    */
 .guide-scroll-arrow {
   display: flex;                
   flex-direction: column;       
@@ -328,6 +341,52 @@
 body {
   overflow-x: hidden;
 }
+#guidesFlexContainer {
+  display: flex;
+  flex-direction: column;
+}
+.section-online { order: 1; }
+.section-mobile { order: 2; }
+
+@media (max-width: 600px) {
+  .section-online { order: 2; }
+  .section-mobile { order: 1; }
+}
+/* ---------- phones (<576 px) ---------- */
+@media (max-width:575.98px){
+
+  /* 1 ★ NEW – overlay is now a normal block that can scroll  */
+  .guide-fullscreen-overlay{
+      align-items:flex-start;
+}
+  .guide-fullscreen-bottombar{position:static}
+}
+
+/* hide bar on ≥576 px (unchanged) */
+  /* back-button bar */
+  .guide-fullscreen-bottombar{
+    position:sticky;
+    bottom:92px;        /* same as mask height */
+    margin:0 40px;      /* same inset          */
+    background:#fff;
+    border-radius:0;    /* match the mask      */
+    z-index:10012;
+    padding:.5rem 0;
+  }
+  #overlayBackBtnMobile{
+    color:var(--brand-orange) !important;
+    font-weight:700;
+    background:none;
+    border:none;
+    padding-left:0;              /* hugs left edge of the strip         */
+    display:inline-flex;
+    align-items:center;
+    gap:.5ch;                    /* space between arrow & label         */
+  }
+  #overlayBackBtnMobile svg{
+    stroke:var(--brand-orange);  /* arrow in orange too                 */
+}
+}
   </style>
 </head>
 <body>
@@ -336,7 +395,7 @@ body {
     <div class="container d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <span class="brand-logo-wrapper">
-          <img src="CWlogo.png" alt="Digital Banking" class="brand-logo shadow">
+          <img src="file:///R:/Everyone/Logo/CWlogo.png" alt="Digital Banking" class="brand-logo shadow">
         </span>
         <div class="ms-3">
           <div class="h3 mb-0 fw-bold">Digital Banking</div>
@@ -368,8 +427,130 @@ body {
           </div>
         </div>
 
+  <div id="mobileGuidesMobileOnly" class="d-block d-sm-none">
+    <div class="card shadow-sm mb-4 section-mobile">
+      <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+           tabindex="0" aria-expanded="false" aria-controls="mobileBankingContentMobile">
+        <span class="fw-bold fs-5 section-header-title">
+          <i class="bi bi-phone section-header-icon"></i> Mobile Banking Guides
+        </span>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+      <div class="collapse" id="mobileBankingContentMobile">
+        <ul class="list-group list-group-flush">
+<li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="openAccountMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Open_a_new_account_in_Mobile_App__oFIR3pFJReex621wQz-1Vg?as=slides&size=flexible"
+                  data-keywords="open account, new account, create account, start account, mobile application, join, membership, sign up, enroll, apply, mobile banking, open savings, open checking, mobile app, account opening, become a member, non member, join credit union, new member">
+                  Open a New Account
+                </button>
+              </li>
+  <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="makingMobileDepositGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Making_a_Mobile_Deposit_Copy__Dk2gmvZoTo2kAEBEBLm0pw?as=slides&size=flexible"
+                  data-keywords="mobile deposit, deposit check, remote deposit, deposit via app, check deposit, mobile banking, deposit funds, take picture of check, deposit money, online deposit, mobile app, deposit to account, e-deposit, digital deposit">
+                  Mobile Deposit
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingBillPayMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Sending_a_Bill_Pay_on_the_Mobile_App_Copy__aeOWKztmSlWxNvAoHF8cng?as=slides&size=flexible"
+                  data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment, pay from phone">
+                  Add a Biller & Pay Bills
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendExternalInstitutionMobileGuide"
+                  data-guide-url="https://scribehow.com/shared/Send_money_to_another_Financial_Institution_on_the_Mobile_App__PB9v8tUcTpK6occU1RlP5w"
+                  data-keywords="mobile transfer, send money, external institution, other bank, move funds, mobile app, transfer out, ACH, payment, transfer to another bank, send funds, pay outside account, mobile banking, transfer to external, wire transfer">
+                  Transfer to External Account
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingPersonMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_Copy__stjKyFhDTayAaOFdmhknjw?as=slides&size=flexible"
+                  data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
+                  Send Money to a Person
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendMoneyMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_Copy__ksdtQssTRtaO99DOM7r8og?as=slides&size=flexible"
+                  data-keywords="transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers">
+                  Add Internal Account for Transfers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledExternalTransfersMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_to_edit_scheduled_External_Transfers_and_Delete_saved_Billers_on_the_Mobile_App_Copy__uOQVBRbwSHWjS71H89VKXw?as=slides&size=flexible"
+                  data-keywords="edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management">
+                  Edit Scheduled External Transfers & Delete Saved External Accounts
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledPersonPaymentsMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_to_edit_scheduled_person_payments_and_delete_saved_people_on_the_Mobile_App_Copy__NwxOtcvpTnOjkPo20PltAA?as=slides&size=flexible"
+                  data-keywords="edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management">
+                  Edit Scheduled Person Payments & Delete Saved People
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledBillPaymentsAltMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_to_edit_scheduled_Bill_Payments_and_delete_saved_Billers_on_the_Mobile_App_Copy__Cm39s0ipQey3lkDkTj7lbg?as=slides&size=flexible"
+                  data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
+                  Edit Scheduled Bill Payments & Delete Saved Billers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="viewEStatementsMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Viewing_eStatements_in_the_Mobile_App_Copy__Btr8rHkzQR6faFtWchpr-Q?as=slides&size=flexible"
+                  data-keywords="eStatements, view statements, mobile statements, digital statements, account history, download statement, paperless, statement access, transaction history, mobile banking, monthly statement, account summary, statement download, view on phone">
+                  View eStatements
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="unlockAccountMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Unlock_account_on_Mobile_App_Copy__3DdA19gRTay6V8OThqKy0A?as=slides&size=flexible"
+                  data-keywords="unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="retrieveUserIdMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Retrieve_User_ID_on_Mobile_App_Copy__7ecXXzA1TVeYA7y3e24fCw?as=slides&size=flexible"
+                  data-keywords="retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app">
+                  Retrieve User ID
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="resetPasswordMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Reset_password_in_the_Mobile_App_Copy__FWRJplGHRiCc30K5v7yQ_g?as=slides&size=flexible"
+                  data-keywords="reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </button>
+              </li>
+            </ul>
+     </div>
+    </div>
+  </div>
+
+ <div id="guidesFlexContainer">
         <!-- Online Banking Collapsible Section -->
-        <div class="card shadow-sm mb-4" id="onlineBankingSection">
+<div class="card shadow-sm mb-4 section-online d-none d-sm-block"
+     id="onlineBankingSection">
           <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
                tabindex="0" aria-expanded="false" aria-controls="onlineBankingContent">
             <span class="fw-bold fs-5 section-header-title">
@@ -505,7 +686,7 @@ body {
         </div>
 
         <!-- Mobile Banking Collapsible Section -->
-        <div class="card shadow-sm mb-4" id="mobileBankingSection">
+<div class="card shadow-sm mb-4 section-mobile d-none d-sm-block" id="mobileBankingSection">
           <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
                tabindex="0" aria-expanded="false" aria-controls="mobileBankingContent">
             <span class="fw-bold fs-5 section-header-title">
@@ -550,7 +731,7 @@ body {
               <li class="list-group-item">
                 <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="sendingPersonMobileGuide"
-                  data-guide-url="https://scribehow.com/embed/Sending_money_to_a_person_on_the_Mobile_App__tPQAFyDySGWldFxlAXtefw"
+                  data-guide-url="https://scribehow.com/shared/Sending_money_to_a_person_on_the_Mobile_App__tPQAFyDySGWldFxlAXtefw"
                   data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
                   Send Money to a Person
                 </button>
@@ -621,9 +802,163 @@ body {
               </li>
             </ul>
           </div>
-        </div>
-      </section>
     </div>
+
+<!-- Online-Banking guides – MOBILE-ONLY copy -->
+<div id="onlineGuidesMobileOnly" class="d-block d-sm-none">
+  <div class="card shadow-sm mb-4 section-online">
+    <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+         tabindex="0" aria-expanded="false" aria-controls="onlineBankingContentMobile">
+      <span class="fw-bold fs-5 section-header-title">
+        <i class="bi bi-globe section-header-icon"></i> Online Banking Guides
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+
+    <div class="collapse" id="onlineBankingContentMobile">
+      <ul class="list-group list-group-flush">
+
+        <!-- === COPY of every item that exists in #onlineBankingSection === -->
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="howToOpenAccountGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_to_Open_an_Account_Online_for_New_Members__tYR3uldtRnmQF9Kv6ax56Q?as=slides&size=flexible"
+                  data-keywords="open account, new account, create account, start account, online application, join, membership, sign up, enroll, apply, digital banking, open savings, open checking, online banking, account opening, become a member, non member, join credit union, new member">
+            Open an Account (for new members)
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendPersonOnlineGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Send_Money_to_a_Person__V8F7XmzNSSKp7ujjKpYzPw?as=slides&size=flexible"
+                  data-keywords="send money, pay a person, person-to-person, P2P, transfer to friend, online payment, digital banking, online banking, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, external payment">
+            Send Money to a Person
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="onlineBankingTourGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Online_Banking_tour__ViSDITX0QLyI9BCEY-61eQ?as=slides&size=flexible"
+                  data-keywords="online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking">
+            Online Banking Tour
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="deleteExternalPaymentsGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_To_Delete_External_Payments_Online___1QgWvhFSVeIRHLGQHA8qA?as=slides&size=flexible"
+                  data-keywords="delete external payment, remove payment, cancel payment, online banking, external transfer, payment management, digital banking, delete scheduled payment, stop payment, external account, payment removal">
+            Edit Scheduled Person Payments &amp; Delete Saved People
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="addCWCUAccountGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Add_a_CWCU_account_for_internal_transfers__5FwYbk1cT5-xT2RUv0A15Q?as=slides&size=flexible"
+                  data-keywords="add account, internal transfer, CWCU account, transfer funds, move money, link account, add member, online banking, digital banking, transfer between accounts, internal move, add savings, add checking, connect account, transfer to self, for transfers">
+            Add Internal Account for Transfers
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="transferringExternalAccountGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Transferring_to_an_External_Account_in_Online_Banking__AgWVId8LQzWlyZzRLyR2EA?as=slides&size=flexible"
+                  data-keywords="transfer to external account, send money, external transfer, other bank, move funds, ACH, wire transfer, digital banking, online banking, transfer out, pay another bank, link external, outside account, transfer to another institution">
+            Transfer to External Account
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="billPayGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_To_Add_A_Biller_and_send_Bill_Payments__YmZmsupATSCI2hSOQPZAgw?as=slides&size=flexible"
+                  data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment">
+            Add a Biller &amp; Pay Bills
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledPaymentsDeleteBillersGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_To_Edit_Scheduled_Payments_and_Delete_Billers__Qm2Y3rgZQE6_a4ZUdimcNA?as=slides&size=flexible"
+                  data-keywords="edit scheduled payment, delete biller, manage bill pay, online banking, scheduled bill, payment management, digital banking, update payment, remove biller, bill pay, payment edit, biller removal">
+            Edit Scheduled Bill Payments &amp; Delete Billers
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="accessingFormsOnlineGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Accessing_Various_Forms_Online__HCu4JDd_RsajrDSe2OzKXQ?as=slides&size=flexible"
+                  data-keywords="access forms, online forms, digital forms, download forms, fill out forms, submit forms, account forms, application forms, request forms, online banking, paperwork, documentation, e-forms, electronic forms, member forms">
+            Access Additional Forms
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="accessEStatementsOnlineGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/How_To_Access_Your_eStatements_Online__ErfvLfT2TfGP9f_oh7umaA?as=slides&size=flexible"
+                  data-keywords="eStatements, view statements, online statements, digital statements, account history, download statement, paperless, statement access, transaction history, online banking, digital banking, monthly statement, account summary, statement download">
+            View eStatements
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="registerCreditCardGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Registering_a_credit_card_online__9R3b3N75R4COi2lL8ehG1Q?as=slides&size=flexible"
+                  data-keywords="register credit card, add credit card, link card, online credit card, activate card, card registration, digital banking, online banking, new card, set up card, credit card access, manage card, card setup, enroll card, card services">
+            Register Credit Card
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="accountAlertsGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Setting_up_Account_Alerts__W4ADaaU-S9CsUc4wVbdR1w?as=slides&size=flexible"
+                  data-keywords="account alerts, notifications, set up alerts, balance alert, transaction alert, email alert, text alert, online banking, digital banking, security alert, alert setup, manage alerts, account notification, alert preferences, customize alerts">
+            Set Up Alerts
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="retrieveUsernameGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Retrieve_Your_Username_for_Online_Banking__mETgYndwREiD_RNpsE7CGQ?as=slides&size=flexible"
+                  data-keywords="retrieve username, forgot username, recover username, find username, login help, account access, user ID, digital banking, lost username, username recovery, sign in, online banking, credentials, user name, username assistance">
+            Retrieve Username
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="resetPasswordGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Resetting_Your_Password__8PlkmciuTBWa2UKLqZIi-g?as=slides&size=flexible"
+                  data-keywords="reset password, forgot password, change password, password help, recover password, online banking, digital banking, login help, update password, password reset, security, credentials, password assistance, password recovery">
+            Reset Password
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="unlockAccountGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Unlocking_Your_Online_Banking_Account__8bnm76hxQGm5awuCvG4Ing?as=slides&size=flexible"
+                  data-keywords="unlock account, locked out, regain access, account locked, reset lock, online banking, digital banking, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+            Unlock Account
+          </button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+     </section>
 
     <div class="d-flex justify-content-end mt-4">
       <button id="feedbackBtn" class="btn btn-brand" aria-label="Send Feedback">Send Feedback</button>
@@ -652,23 +987,18 @@ body {
     </div>
   </footer>
 
-  <!-- Fullscreen Guide Overlay -->
 <div id="guideFullscreenOverlay" class="guide-fullscreen-overlay">
-<div class="guide-fullscreen-topbar d-flex align-items-center">
-  <button id="overlayBackBtn" class="btn btn-link ms-3">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="1em" height="1em"
-             fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 16 16">
-          <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-        </svg>
-        Back to all guides
-      </button>
-    </div>
-    <div class="fullscreen-spinner" id="fullscreenSpinner">
-      <i class="bi bi-arrow-repeat bi-spin"></i> Loading…
-    </div>
+  <div class="fullscreen-spinner" id="fullscreenSpinner">
+    <i class="bi bi-arrow-repeat bi-spin"></i> Loading…
+  </div>
+
   <div class="guide-fullscreen-content">
+ <div class="guide-fullscreen-topbar d-none d-sm-flex">
+    <button id="overlayBackBtn" class="btn btn-link m-0">
+      <!-- same SVG … -->
+      Back to all guides
+    </button>
+  </div>
     <div class="iframe-crop-wrapper">
       <iframe
         id="guideFullscreenIframe"
@@ -678,9 +1008,25 @@ body {
         title="Guide">
       </iframe>
     </div>
+
+    <!-- your new bottom-bar -->
+    <div class="guide-fullscreen-bottombar">
+      <button id="overlayBackBtnMobile" class="btn btn-link">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="1em" height="1em"
+             fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 16 16">
+          <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647
+                   5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0
+                   1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        Back to all guides
+      </button>
+    </div>
   </div>
+
   <div class="guide-scroll-arrow" id="guideScrollArrow">
-  <i class="bi bi-chevron-down small-chevron"></i>
+    <i class="bi bi-chevron-down small-chevron"></i>
     <i class="bi bi-chevron-down"></i>
   </div>
 </div>
@@ -841,6 +1187,8 @@ function closeOverlay() {
 }
 
     overlayBackBtn.addEventListener('click', closeOverlay);
+const backBtnMobile = document.getElementById('overlayBackBtnMobile');
+if (backBtnMobile) backBtnMobile.addEventListener('click', closeOverlay)
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && overlay.style.display === 'flex') closeOverlay();
     });
@@ -1042,6 +1390,6 @@ window.addEventListener('popstate', function(event) {
     closeOverlay();
   }
 });
-  </script>
+</script>
 </body>
 </html>
