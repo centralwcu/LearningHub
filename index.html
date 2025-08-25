@@ -352,40 +352,38 @@ body {
   .section-online { order: 2; }
   .section-mobile { order: 1; }
 }
-/* ---------- phones (<576 px) ---------- */
-@media (max-width:575.98px){
 
-  /* 1 ★ NEW – overlay is now a normal block that can scroll  */
-  .guide-fullscreen-overlay{
-      align-items:flex-start;
-}
-  .guide-fullscreen-bottombar{position:static}
+/* Hide the bottom bar by default (all screens) */
+.guide-fullscreen-bottombar {
+  display: none;
 }
 
-/* hide bar on ≥576 px (unchanged) */
-  /* back-button bar */
-  .guide-fullscreen-bottombar{
-    position:sticky;
-    bottom:92px;        /* same as mask height */
-    margin:0 40px;      /* same inset          */
-    background:#fff;
-    border-radius:0;    /* match the mask      */
-    z-index:10012;
-    padding:.5rem 0;
+/* Show only on mobile (phones <576px) */
+@media (max-width: 575.98px) {
+  .guide-fullscreen-bottombar {
+    display: block;
+    position: static;
+    bottom: 92px;        /* same as mask height */
+    margin: 0 40px;      /* same inset          */
+    background: #fff;
+    border-radius: 0;    /* match the mask      */
+    z-index: 10012;
+    padding: .5rem 0;
   }
   #overlayBackBtnMobile{
     color:var(--brand-orange) !important;
+ transform: translateY(-65px);
     font-weight:700;
     background:none;
     border:none;
-    padding-left:0;              /* hugs left edge of the strip         */
+    padding-left:0;
     display:inline-flex;
     align-items:center;
-    gap:.5ch;                    /* space between arrow & label         */
+    gap:.5ch;
   }
   #overlayBackBtnMobile svg{
-    stroke:var(--brand-orange);  /* arrow in orange too                 */
-}
+    stroke:var(--brand-orange);
+  }
 }
   </style>
 </head>
@@ -480,6 +478,14 @@ body {
               </li>
               <li class="list-group-item">
                 <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingPersonMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers_on_the_Mobile_App__VLM_L5yIT-KSnYizX3_09Q?as=slides&size=flexible"
+                  data-keywords="Transfer, mobile, digital, edit transfer, delete transfer, schedule, checking to saving">
+                  Transfer Between Personal Accounts & Cancel Scheduled Transfers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="sendMoneyMobileGuide"
                   data-guide-url="https://scribehow.com/embed-preview/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_Copy__ksdtQssTRtaO99DOM7r8og?as=slides&size=flexible"
                   data-keywords="transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers">
@@ -508,6 +514,14 @@ body {
                   data-guide-url="https://scribehow.com/embed-preview/How_to_edit_scheduled_Bill_Payments_and_delete_saved_Billers_on_the_Mobile_App_Copy__Cm39s0ipQey3lkDkTj7lbg?as=slides&size=flexible"
                   data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
                   Edit Scheduled Bill Payments & Delete Saved Billers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledBillPaymentsAltMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments_on_the_Mobile_App__SIviIGqYTGiJ0FxtOC4mQw?as=slides&size=flexible"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, digital banking, mobile banking, update payment, delete payment, update transfer, delete transfer">
+                  Internal loan payments & cancel scheduled internal payments
                 </button>
               </li>
               <li class="list-group-item">
@@ -602,6 +616,14 @@ body {
               </li>
               <li class="list-group-item">
                 <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingPersonMobileGuide"
+                  data-guide-url="https://scribehow.com/viewer/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers__D-MunIbuRN6zLCqmHDeORQ"
+                  data-keywords="Transfer, edit transfer, delete transfer, schedule, checking to saving, saving to checking">
+                  Transfer Between Personal Accounts & Cancel Scheduled Transfers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="transferringExternalAccountGuide"
                   data-guide-url="https://scribehow.com/shared/Transferring_to_an_External_Account_in_Online_Banking_updated__AgWVId8LQzWlyZzRLyR2EA"
                   data-keywords="transfer to external account, send money, external transfer, other bank, move funds, ACH, wire transfer, digital banking, online banking, transfer out, pay another bank, link external, outside account, transfer to another institution">
@@ -624,6 +646,13 @@ body {
                   Edit Scheduled Bill Payments & Delete Billers
                 </button>
               </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledBillPaymentsAltMobileGuide"
+                  data-guide-url="https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments__Sa12w90FThu3pzHVhjOPQw"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, update payment, delete payment, update transfer, delete transfer">
+                  Internal loan payments & cancel scheduled internal payments
+                </button>
               </li>
               <li class="list-group-item">
                 <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
@@ -738,6 +767,14 @@ body {
               </li>
               <li class="list-group-item">
                 <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingPersonMobileGuide"
+                  data-guide-url="https://scribehow.com/viewer/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers_on_the_Mobile_App__VLM_L5yIT-KSnYizX3_09Q"
+                  data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
+                  Transfer Between Personal Accounts & Cancel Scheduled Transfers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="sendMoneyMobileGuide"
                   data-guide-url="https://scribehow.com/shared/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_updated__rXqytzGlSwKNe4GH9Zh9FA"
                   data-keywords="transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers">
@@ -766,6 +803,14 @@ body {
                   data-guide-url="https://scribehow.com/shared/How_to_edit_scheduled_Bill_Payments_and_delete_saved_Billers_on_the_Mobile_App__giIyDp7BRG2TY68sdm-b6Q"
                   data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
                   Edit Scheduled Bill Payments & Delete Saved Billers
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="editScheduledBillPaymentsAltMobileGuide"
+                  data-guide-url="https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments_on_the_Mobile_App__SIviIGqYTGiJ0FxtOC4mQw"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, digital banking, mobile banking, update payment, delete payment, update transfer, delete transfer">
+                  Internal loan payments & cancel scheduled internal payments
                 </button>
               </li>
               <li class="list-group-item">
@@ -817,8 +862,6 @@ body {
 
     <div class="collapse" id="onlineBankingContentMobile">
       <ul class="list-group list-group-flush">
-
-        <!-- === COPY of every item that exists in #onlineBankingSection === -->
         <li class="list-group-item">
           <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="howToOpenAccountGuide"
@@ -863,7 +906,14 @@ body {
             Add Internal Account for Transfers
           </button>
         </li>
-
+              <li class="list-group-item">
+                <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
+                  data-guide="sendingPersonMobileGuide"
+                  data-guide-url="https://scribehow.com/embed-preview/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers__D-MunIbuRN6zLCqmHDeORQ?as=slides&size=flexible"
+                  data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
+                  Transfer Between Personal Accounts & Cancel Scheduled Transfers
+                </button>
+              </li>
         <li class="list-group-item">
           <button class="btn btn-link text-decoration-none p-0 guide-btn" type="button"
                   data-guide="transferringExternalAccountGuide"
@@ -878,7 +928,7 @@ body {
                   data-guide="billPayGuide"
                   data-guide-url="https://scribehow.com/embed-preview/How_To_Add_A_Biller_and_send_Bill_Payments__YmZmsupATSCI2hSOQPZAgw?as=slides&size=flexible"
                   data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment">
-            Add a Biller &amp; Pay Bills
+            Add a Biller & Pay Bills
           </button>
         </li>
 
