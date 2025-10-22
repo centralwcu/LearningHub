@@ -1469,34 +1469,72 @@ window.addEventListener('popstate', function(event) {
 const feedbackBtn   = document.getElementById('feedbackBtn');
 const feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
 
-const COOLDOWN_MS   = 15000;            // 30-second lockout
+const COOLDOWN_MS   = 15000;            // 15-second lockout
+const MIN_OPEN_TIME = 15000;            // 15 seconds minimum open time
 const ORIGINAL_TXT  = feedbackBtn.textContent.trim();
-let   cooldownTimer = null;
+
+let cooldownTimer = null;
+let modalOpenTime = null;
+let minTimeTimer = null;
+let shouldCooldown = false;
 
 /* ── OPEN modal ───────────────────────────────────────── */
 feedbackBtn.addEventListener('click', () => {
   if (feedbackBtn.disabled) return;     // still cooling-down
-  feedbackBtn.disabled = true;          // lock immediately
   feedbackModal.show();
 });
 
-/* ── CLOSE modal  →  start cool-down ─────────────────── */
+/* ── Modal SHOWN event (when it's fully visible) ──────── */
+document.getElementById('feedbackModal')
+        .addEventListener('shown.bs.modal', () => {
+  modalOpenTime = Date.now();           // record when modal opened
+  shouldCooldown = false;               // reset flag
+  
+  // Set timer for minimum open time
+  minTimeTimer = setTimeout(() => {
+    shouldCooldown = true;              // after 15s, enable cooldown
+  }, MIN_OPEN_TIME);
+});
+
+/* ── Modal HIDDEN event (when it's closed) ─────────────── */
 document.getElementById('feedbackModal')
         .addEventListener('hidden.bs.modal', () => {
-
-  // clear any previous timer
-  if (cooldownTimer) clearTimeout(cooldownTimer);
-
-  // show “Feedback Sent!” and keep button disabled
-  feedbackBtn.textContent = 'Feedback Sent!';
-
-  // countdown, then restore button
-  cooldownTimer = setTimeout(() => {
-      feedbackBtn.disabled   = false;
-      feedbackBtn.textContent = ORIGINAL_TXT;
-      cooldownTimer = null;
-  }, COOLDOWN_MS);
+  
+  // Clear the minimum time timer
+  if (minTimeTimer) {
+    clearTimeout(minTimeTimer);
+    minTimeTimer = null;
+  }
+  
+  // Only start cooldown if modal was open for 15+ seconds
+  if (shouldCooldown) {
+    startCooldown();
+  } else {
+    // Modal was closed quickly - no cooldown needed
+    console.log('Modal closed quickly - no cooldown applied');
+  }
+  
+  // Reset tracking variables
+  modalOpenTime = null;
+  shouldCooldown = false;
 });
+
+/* ── Start cooldown process ─────────────────────────────── */
+function startCooldown() {
+  // Clear any previous timer
+  if (cooldownTimer) clearTimeout(cooldownTimer);
+  
+  // Disable button and show feedback message
+  feedbackBtn.disabled = true;
+  feedbackBtn.textContent = 'Feedback Sent!';
+  
+  // Countdown, then restore button
+  cooldownTimer = setTimeout(() => {
+    feedbackBtn.disabled = false;
+    feedbackBtn.textContent = ORIGINAL_TXT;
+    cooldownTimer = null;
+  }, COOLDOWN_MS);
+}
 </script>
 </body>
 </html>
