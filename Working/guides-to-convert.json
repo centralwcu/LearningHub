@@ -1,0 +1,193 @@
+{
+  "_readme": "This file tracks all guides pending conversion from ScribeHow to local HTML. Each entry contains everything needed to re-integrate the converted guide into index.html. The 'outputFile' field shows where the converted HTML should be saved. Once converted, add the guide as an <a> tag in both the desktop and mobile-only list sections of index.html using the pattern in the development plan.",
+  "mobile": [
+    {
+      "title": "Add a Biller & Pay Bills",
+      "outputFile": "guides/mobile/add-biller-pay-bills.html",
+      "scribeUrl": "https://scribehow.com/shared/Sending_a_Bill_Pay_on_the_Mobile_App__Wz36k-SpSd2hKtCb2b3hlg",
+      "keywords": "bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment, pay from phone"
+    },
+    {
+      "title": "Send Money to a Person",
+      "outputFile": "guides/mobile/send-money-to-person.html",
+      "scribeUrl": "https://scribehow.com/shared/Sending_money_to_a_person_on_the_Mobile_App__tPQAFyDySGWldFxlAXtefw",
+      "keywords": "send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment"
+    },
+    {
+      "title": "Transfer Between Personal Accounts",
+      "outputFile": "guides/mobile/transfer-between-personal-accounts.html",
+      "scribeUrl": "https://scribehow.com/embed/Transfer_Between_Your_Personal_Accounts_on_the_Mobile_App__VLM_L5yIT-KSnYizX3_09Q?skipIntro=true&as=scrollable",
+      "keywords": "Transfer, mobile, digital, schedule, checking to saving"
+    },
+    {
+      "title": "Edit or Delete Scheduled Internal Transfers",
+      "outputFile": "guides/mobile/edit-delete-scheduled-internal-transfers.html",
+      "scribeUrl": "https://scribehow.com/embed/Cancel_Scheduled_Transfers_on_the_Mobile_App__Gh6gNJ68R-maMyv8V8wUgw?skipIntro=true&as=scrollable",
+      "keywords": "Transfer, mobile, digital, edit, delete, schedule, checking to saving"
+    },
+    {
+      "title": "Add Internal Account for Transfers",
+      "outputFile": "guides/mobile/add-internal-account-for-transfers.html",
+      "scribeUrl": "https://scribehow.com/shared/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_updated__rXqytzGlSwKNe4GH9Zh9FA",
+      "keywords": "transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers"
+    },
+    {
+      "title": "Edit Scheduled External Transfers & Delete Saved External Accounts",
+      "outputFile": "guides/mobile/edit-scheduled-external-transfers.html",
+      "scribeUrl": "https://scribehow.com/shared/How_to_edit_scheduled_External_Transfers_and_Delete_saved_Billers_on_the_Mobile_App__O6HDVuguS0KDRgvbVlLQCg",
+      "keywords": "edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management"
+    },
+    {
+      "title": "Edit Scheduled Person Payments & Delete Saved People",
+      "outputFile": "guides/mobile/edit-scheduled-person-payments.html",
+      "scribeUrl": "https://scribehow.com/shared/How_to_edit_scheduled_person_payments_and_delete_saved_people_on_the_Mobile_App__PYCvdbEGRT26qAsDIEkF2Q",
+      "keywords": "edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management"
+    },
+    {
+      "title": "Edit Scheduled Bill Payments & Delete Saved Billers",
+      "outputFile": "guides/mobile/edit-scheduled-bill-payments.html",
+      "scribeUrl": "https://scribehow.com/shared/How_to_edit_scheduled_Bill_Payments_and_delete_saved_Billers_on_the_Mobile_App__giIyDp7BRG2TY68sdm-b6Q",
+      "keywords": "edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management"
+    },
+    {
+      "title": "Internal Loan Payments & Cancel Scheduled Internal Payments",
+      "outputFile": "guides/mobile/internal-loan-payments.html",
+      "scribeUrl": "https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments_on_the_Mobile_App__SIviIGqYTGiJ0FxtOC4mQw",
+      "keywords": "edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, digital banking, mobile banking, update payment, delete payment, update transfer, delete transfer"
+    },
+    {
+      "title": "View eStatements",
+      "outputFile": "guides/mobile/view-estatements.html",
+      "scribeUrl": "https://scribehow.com/shared/Viewing_eStatements_in_the_Mobile_App__3u_f_lRjTAOA0OTVV5lF1A",
+      "keywords": "eStatements, view statements, mobile statements, digital statements, account history, download statement, paperless, statement access, transaction history, mobile banking, monthly statement, account summary, statement download, view on phone"
+    },
+    {
+      "title": "Unlock Account",
+      "outputFile": "guides/mobile/unlock-account.html",
+      "scribeUrl": "https://scribehow.com/shared/Unlock_account_on_Mobile_App__wjTf4eBiQFGpEd-LZKCj9w",
+      "keywords": "unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account"
+    },
+    {
+      "title": "Retrieve User ID",
+      "outputFile": "guides/mobile/retrieve-user-id.html",
+      "scribeUrl": "https://scribehow.com/shared/Retrieve_User_ID_on_Mobile_App__LumACkRtRASFZKbOB-DfsA",
+      "keywords": "retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app"
+    },
+    {
+      "title": "Reset Password",
+      "outputFile": "guides/mobile/reset-password.html",
+      "scribeUrl": "https://scribehow.com/shared/Reset_password_in_the_Mobile_App__wEzuWJ-DRdGDE-GjGuIPDg",
+      "keywords": "reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery"
+    }
+  ],
+  "online": [
+    {
+      "title": "Open an Account (for new members)",
+      "outputFile": "guides/online/open-an-account-new-members.html",
+      "scribeUrl": "https://scribehow.com/shared/How_to_Open_an_Account_Online_for_New_Members__tYR3uldtRnmQF9Kv6ax56Q",
+      "keywords": "open account, new account, create account, start account, online application, join, membership, sign up, enroll, apply, digital banking, open savings, open checking, online banking, account opening, become a member, non member, join credit union, new member"
+    },
+    {
+      "title": "Send Money to a Person",
+      "outputFile": "guides/online/send-money-to-person.html",
+      "scribeUrl": "https://scribehow.com/shared/Send_Money_to_a_Person_in_Online_Banking_Scroll__V8F7XmzNSSKp7ujjKpYzPw",
+      "keywords": "send money, pay a person, person-to-person, P2P, transfer to friend, online payment, digital banking, online banking, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, external payment"
+    },
+    {
+      "title": "Online Banking Tour",
+      "outputFile": "guides/online/online-banking-tour.html",
+      "scribeUrl": "https://scribehow.com/shared/Online_Banking_tour_Updated__ViSDITX0QLyI9BCEY-61eQ",
+      "keywords": "online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking"
+    },
+    {
+      "title": "Edit Scheduled Person Payments & Delete Saved People",
+      "outputFile": "guides/online/edit-scheduled-person-payments.html",
+      "scribeUrl": "https://scribehow.com/shared/How_To_Delete_External_Payments_Online_updated___1QgWvhFSVeIRHLGQHA8qA",
+      "keywords": "delete external payment, remove payment, cancel payment, online banking, external transfer, payment management, digital banking, delete scheduled payment, stop payment, external account, payment removal"
+    },
+    {
+      "title": "Add Internal Account for Transfers",
+      "outputFile": "guides/online/add-internal-account-for-transfers.html",
+      "scribeUrl": "https://scribehow.com/shared/Add_a_CWCU_account_for_internal_transfers_updated__5FwYbk1cT5-xT2RUv0A15Q",
+      "keywords": "add account, internal transfer, CWCU account, transfer funds, move money, link account, add member, online banking, digital banking, transfer between accounts, internal move, add savings, add checking, connect account, transfer to self, for transfers"
+    },
+    {
+      "title": "Transfer Between Personal Accounts",
+      "outputFile": "guides/online/transfer-between-personal-accounts.html",
+      "scribeUrl": "https://scribehow.com/viewer/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers__D-MunIbuRN6zLCqmHDeORQ",
+      "keywords": "Transfer, schedule, checking to saving, saving to checking"
+    },
+    {
+      "title": "Edit or Delete Scheduled Internal Transfers",
+      "outputFile": "guides/online/edit-delete-scheduled-internal-transfers.html",
+      "scribeUrl": "https://scribehow.com/embed/Editing_or_Deleting_Scheduled_Internal_Transfers__5GMA5cviTp-xbf_f-Ty4PA?skipIntro=true&as=scrollable",
+      "keywords": "Transfer, schedule, edit, delete, checking to saving, saving to checking"
+    },
+    {
+      "title": "Transfer to External Account",
+      "outputFile": "guides/online/transfer-to-external-account.html",
+      "scribeUrl": "https://scribehow.com/shared/Transferring_to_an_External_Account_in_Online_Banking_updated__AgWVId8LQzWlyZzRLyR2EA",
+      "keywords": "transfer to external account, send money, external transfer, other bank, move funds, ACH, wire transfer, digital banking, online banking, transfer out, pay another bank, link external, outside account, transfer to another institution"
+    },
+    {
+      "title": "Add a Biller & Pay Bills",
+      "outputFile": "guides/online/add-biller-pay-bills.html",
+      "scribeUrl": "https://scribehow.com/shared/How_To_Add_A_Biller_and_send_Bill_Payments__YmZmsupATSCI2hSOQPZAgw",
+      "keywords": "bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment"
+    },
+    {
+      "title": "Edit Scheduled Bill Payments & Delete Billers",
+      "outputFile": "guides/online/edit-scheduled-bill-payments.html",
+      "scribeUrl": "https://scribehow.com/shared/How_To_Edit_Scheduled_Payments_and_Delete_Billers_updated__Qm2Y3rgZQE6_a4ZUdimcNA",
+      "keywords": "edit scheduled payment, delete biller, manage bill pay, online banking, scheduled bill, payment management, digital banking, update payment, remove biller, bill pay, payment edit, biller removal"
+    },
+    {
+      "title": "Internal Loan Payments & Cancel Scheduled Internal Payments",
+      "outputFile": "guides/online/internal-loan-payments.html",
+      "scribeUrl": "https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments__Sa12w90FThu3pzHVhjOPQw",
+      "keywords": "edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, update payment, delete payment, update transfer, delete transfer"
+    },
+    {
+      "title": "Access Additional Forms",
+      "outputFile": "guides/online/access-additional-forms.html",
+      "scribeUrl": "https://scribehow.com/shared/Accessing_Various_Forms_Online_Updated__HCu4JDd_RsajrDSe2OzKXQ",
+      "keywords": "access forms, online forms, digital forms, download forms, fill out forms, submit forms, account forms, application forms, request forms, online banking, paperwork, documentation, e-forms, electronic forms, member forms"
+    },
+    {
+      "title": "View eStatements",
+      "outputFile": "guides/online/view-estatements.html",
+      "scribeUrl": "https://scribehow.com/shared/How_To_Access_Your_eStatements_Online__ErfvLfT2TfGP9f_oh7umaA",
+      "keywords": "eStatements, view statements, online statements, digital statements, account history, download statement, paperless, statement access, transaction history, online banking, digital banking, monthly statement, account summary, statement download"
+    },
+    {
+      "title": "Register Credit Card",
+      "outputFile": "guides/online/register-credit-card.html",
+      "scribeUrl": "https://scribehow.com/shared/Registering_a_credit_card_online_updated__9R3b3N75R4COi2lL8ehG1Q",
+      "keywords": "register credit card, add credit card, link card, online credit card, activate card, card registration, digital banking, online banking, new card, set up card, credit card access, manage card, card setup, enroll card, card services"
+    },
+    {
+      "title": "Set Up Alerts",
+      "outputFile": "guides/online/set-up-alerts.html",
+      "scribeUrl": "https://scribehow.com/shared/Setting_up_Account_Alerts_Scroll__W4ADaaU-S9CsUc4wVbdR1w?skipIntro=true",
+      "keywords": "account alerts, notifications, set up alerts, balance alert, transaction alert, email alert, text alert, online banking, digital banking, security alert, alert setup, manage alerts, account notification, alert preferences, customize alerts"
+    },
+    {
+      "title": "Retrieve Username",
+      "outputFile": "guides/online/retrieve-username.html",
+      "scribeUrl": "https://scribehow.com/shared/Retrieve_Your_Username_for_Online_Banking_updated__mETgYndwREiD_RNpsE7CGQ",
+      "keywords": "retrieve username, forgot username, recover username, find username, login help, account access, user ID, digital banking, lost username, username recovery, sign in, online banking, credentials, user name, username assistance"
+    },
+    {
+      "title": "Reset Password",
+      "outputFile": "guides/online/reset-password.html",
+      "scribeUrl": "https://scribehow.com/shared/Resetting_Your_Password_Updated__8PlkmciuTBWa2UKLqZIi-g",
+      "keywords": "reset password, forgot password, change password, password help, recover password, online banking, digital banking, login help, update password, password reset, security, credentials, password assistance, password recovery"
+    },
+    {
+      "title": "Unlock Account",
+      "outputFile": "guides/online/unlock-account.html",
+      "scribeUrl": "https://scribehow.com/shared/Unlocking_Your_Online_Banking_Account_updated__8bnm76hxQGm5awuCvG4Ing",
+      "keywords": "unlock account, locked out, regain access, account locked, reset lock, online banking, digital banking, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account"
+    }
+  ]
+}
