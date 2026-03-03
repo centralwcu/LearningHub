@@ -157,6 +157,16 @@ h1 {
     border: 1px solid #fca5a5;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.warning-card .card-icon {
+    font-size: 1.5em;
+    color: #ef4444;
+    flex-shrink: 0;
+    line-height: 1.4;
 }
 
 .warning-text {
@@ -169,10 +179,29 @@ h1 {
 }
 
 .info-card {
-    background-color: #fef2f2;
-    border: 1px solid #fca5a5;
+    background-color: #f0fdf4;
+    border: 1px solid #86efac;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.info-card .card-icon {
+    font-size: 1.5em;
+    color: #22c55e;
+    flex-shrink: 0;
+    line-height: 1.4;
+}
+
+.info-text {
+    font-size: 1em;
+    color: #0f172a;
+}
+
+.info-text strong {
+    font-weight: 600;
 }
 
 .tip-card {
@@ -180,6 +209,16 @@ h1 {
     border: 1px solid #86efac;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.tip-card .card-icon {
+    font-size: 1.5em;
+    color: #22c55e;
+    flex-shrink: 0;
+    line-height: 1.4;
 }
 
 .tip-text {
@@ -234,4 +273,40 @@ ol.step-list li {
     flex-shrink: 0;
     position: relative;
     top: 2px;
+}
+
+.mobile-topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 52px;
+}
+
+.mobile-topnav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #58595b;
+    font-weight: 700;
+    font-size: 0.95em;
+    line-height: 1;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.15s;
+}
+
+.mobile-topnav a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.mobile-topnav svg {
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
 }
