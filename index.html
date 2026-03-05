@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Hub | Central Willamette CU</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/hub.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="brand-header py-3 mb-4 shadow">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <span class="brand-logo-wrapper">
+          <img src="CWlogo.png" alt="Digital Banking" class="brand-logo shadow">
+        </span>
+        <div class="ms-3">
+          <div class="h3 mb-0 fw-bold">Digital Banking</div>
+          <div class="subtitle fs-5">Learning Hub</div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <form class="floating-search-bar me-2" autocomplete="off" onsubmit="return false;">
+          <i class="bi bi-search"></i>
+          <input id="searchInput" type="text" placeholder="Search guides…" aria-label="Search guides">
+          <i class="bi bi-x clear-btn" id="clearSearch" title="Clear search"></i>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="container container-custom mb-5">
+    <div class="row justify-content-center">
+      <section class="col-md-12" id="guidesList">
+        <!-- FAVORITES -->
+        <div id="favoritesSection" style="display:none;">
+          <div class="card shadow-sm mb-4">
+            <div class="card-header d-flex align-items-center">
+              <span class="fw-bold fs-5 section-header-title">
+                <i class="bi bi-star-fill section-header-icon"></i> Favorites
+              </span>
+            </div>
+            <ul id="favoritesList" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+
+  <div id="mobileGuidesMobileOnly" class="d-block d-sm-none">
+    <div class="card shadow-sm mb-4 section-mobile">
+      <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+           tabindex="0" aria-expanded="false" aria-controls="mobileBankingContentMobile">
+        <span class="fw-bold fs-5 section-header-title">
+          <i class="bi bi-phone section-header-icon"></i> Mobile Banking Guides
+        </span>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+      <div class="collapse" id="mobileBankingContentMobile">
+        <ul class="list-group list-group-flush">
+<li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/open-a-new-account.html"
+                  data-keywords="open account, new account, create account, start account, mobile application, join, membership, sign up, enroll, apply, mobile banking, open savings, open checking, mobile app, account opening, become a member, non member, join credit union, new member">
+                  Open a New Account
+                </a>
+              </li>
+  <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/making-a-mobile-deposit.html"
+                  data-keywords="mobile deposit, deposit check, remote deposit, deposit via app, check deposit, mobile banking, deposit funds, take picture of check, deposit money, online deposit, mobile app, deposit to account, e-deposit, digital deposit">
+                  Mobile Deposit
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_a_Bill_Pay_on_the_Mobile_App__Wz36k-SpSd2hKtCb2b3hlg" target="_blank" rel="noopener"
+                  data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment, pay from phone">
+                  Add a Biller &amp; Pay Bills
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/add-external-account.html"
+                  data-keywords="add external account, external transfer, other bank, link account, mobile app, ACH, transfer to another bank, mobile banking, transfer to external, add bank account, verify external account, external institution">
+                  Add an External Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_money_to_a_person_on_the_Mobile_App__tPQAFyDySGWldFxlAXtefw" target="_blank" rel="noopener"
+                  data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Transfer_Between_Your_Personal_Accounts_on_the_Mobile_App__VLM_L5yIT-KSnYizX3_09Q?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+                  data-keywords="Transfer, mobile, digital, schedule, checking to saving">
+                  Transfer Between Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Cancel_Scheduled_Transfers_on_the_Mobile_App__Gh6gNJ68R-maMyv8V8wUgw?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+                  data-keywords="Transfer, mobile, digital, edit, delete, schedule, checking to saving">
+                  Edit or Delete Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_updated__rXqytzGlSwKNe4GH9Zh9FA" target="_blank" rel="noopener"
+                  data-keywords="transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers">
+                  Add Internal Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-external-transfers.html" data-keywords="edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-person-payments.html" data-keywords="edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management">
+                  Edit Scheduled Person Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-bill-payments.html" data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments_on_the_Mobile_App__SIviIGqYTGiJ0FxtOC4mQw" target="_blank" rel="noopener"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, digital banking, mobile banking, update payment, delete payment, update transfer, delete transfer">
+                  Internal Loan Payments &amp; Cancel Scheduled Internal Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Viewing_eStatements_in_the_Mobile_App__3u_f_lRjTAOA0OTVV5lF1A" target="_blank" rel="noopener"
+                  data-keywords="eStatements, view statements, mobile statements, digital statements, account history, download statement, paperless, statement access, transaction history, mobile banking, monthly statement, account summary, statement download, view on phone">
+                  View eStatements
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Unlock_account_on_Mobile_App__wjTf4eBiQFGpEd-LZKCj9w" target="_blank" rel="noopener"
+                  data-keywords="unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Retrieve_User_ID_on_Mobile_App__LumACkRtRASFZKbOB-DfsA" target="_blank" rel="noopener"
+                  data-keywords="retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Reset_password_in_the_Mobile_App__wEzuWJ-DRdGDE-GjGuIPDg" target="_blank" rel="noopener"
+                  data-keywords="reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-billers.html" data-keywords="delete biller, remove biller, bill pay, manage billers, mobile app, mobile banking, digital banking, remove payee, biller management, delete saved biller">
+                  Delete Saved Billers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-external-accounts.html" data-keywords="delete external account, remove external account, mobile app, mobile banking, digital banking, manage external accounts, remove bank account, delete saved account, external transfer, account management">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-people.html" data-keywords="delete saved people, remove payee, person-to-person, P2P, mobile app, mobile banking, digital banking, manage payees, remove person, delete contact, external payment, payment management">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+            </ul>
+     </div>
+    </div>
+  </div>
+
+ <div id="guidesFlexContainer">
+        <!-- Online Banking Collapsible Section -->
+<div class="card shadow-sm mb-4 section-online d-none d-sm-block"
+     id="onlineBankingSection">
+          <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+               tabindex="0" aria-expanded="false" aria-controls="onlineBankingContent">
+            <span class="fw-bold fs-5 section-header-title">
+              <i class="bi bi-globe section-header-icon"></i> Online Banking Guides
+            </span>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div class="collapse" id="onlineBankingContent">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_to_Open_an_Account_Online_for_New_Members__tYR3uldtRnmQF9Kv6ax56Q" target="_blank" rel="noopener"
+                  data-keywords="open account, new account, create account, start account, online application, join, membership, sign up, enroll, apply, digital banking, open savings, open checking, online banking, account opening, become a member, non member, join credit union, new member">
+                  Open an Account (for new members)
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Send_Money_to_a_Person_in_Online_Banking_Scroll__V8F7XmzNSSKp7ujjKpYzPw" target="_blank" rel="noopener"
+                  data-keywords="send money, pay a person, person-to-person, P2P, transfer to friend, online payment, digital banking, online banking, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, external payment">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Online_Banking_tour_Updated__ViSDITX0QLyI9BCEY-61eQ" target="_blank" rel="noopener"
+                  data-keywords="online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking">
+                  Online Banking Tour
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/online/edit-scheduled-person-payments.html" data-keywords="delete external payment, remove payment, cancel payment, online banking, external transfer, payment management, digital banking, delete scheduled payment, stop payment, external account, payment removal">
+                  Edit Scheduled Person Payments &amp; Delete Saved People
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Add_a_CWCU_account_for_internal_transfers_updated__5FwYbk1cT5-xT2RUv0A15Q" target="_blank" rel="noopener"
+                  data-keywords="add account, internal transfer, CWCU account, transfer funds, move money, link account, add member, online banking, digital banking, transfer between accounts, internal move, add savings, add checking, connect account, transfer to self, for transfers">
+                  Add Internal Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/viewer/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers__D-MunIbuRN6zLCqmHDeORQ" target="_blank" rel="noopener"
+                  data-keywords="Transfer, schedule, checking to saving, saving to checking">
+                  Transfer Between Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Editing_or_Deleting_Scheduled_Internal_Transfers__5GMA5cviTp-xbf_f-Ty4PA?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+                  data-keywords="Transfer, schedule, edit, delete, checking to saving, saving to checking">
+                  Edit or Delete Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Transferring_to_an_External_Account_in_Online_Banking_updated__AgWVId8LQzWlyZzRLyR2EA" target="_blank" rel="noopener"
+                  data-keywords="transfer to external account, send money, external transfer, other bank, move funds, ACH, wire transfer, digital banking, online banking, transfer out, pay another bank, link external, outside account, transfer to another institution">
+                  Transfer to External Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_To_Add_A_Biller_and_send_Bill_Payments__YmZmsupATSCI2hSOQPZAgw" target="_blank" rel="noopener"
+                  data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment">
+                  Add a Biller &amp; Pay Bills
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/online/edit-scheduled-bill-payments.html" data-keywords="edit scheduled payment, delete biller, manage bill pay, online banking, scheduled bill, payment management, digital banking, update payment, remove biller, bill pay, payment edit, biller removal">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments__Sa12w90FThu3pzHVhjOPQw" target="_blank" rel="noopener"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, update payment, delete payment, update transfer, delete transfer">
+                  Internal Loan Payments &amp; Cancel Scheduled Internal Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Accessing_Various_Forms_Online_Updated__HCu4JDd_RsajrDSe2OzKXQ" target="_blank" rel="noopener"
+                  data-keywords="access forms, online forms, digital forms, download forms, fill out forms, submit forms, account forms, application forms, request forms, online banking, paperwork, documentation, e-forms, electronic forms, member forms">
+                  Access Additional Forms
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_To_Access_Your_eStatements_Online__ErfvLfT2TfGP9f_oh7umaA" target="_blank" rel="noopener"
+                  data-keywords="eStatements, view statements, online statements, digital statements, account history, download statement, paperless, statement access, transaction history, online banking, digital banking, monthly statement, account summary, statement download">
+                  View eStatements
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Registering_a_credit_card_online_updated__9R3b3N75R4COi2lL8ehG1Q" target="_blank" rel="noopener"
+                  data-keywords="register credit card, add credit card, link card, online credit card, activate card, card registration, digital banking, online banking, new card, set up card, credit card access, manage card, card setup, enroll card, card services">
+                  Register Credit Card
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Setting_up_Account_Alerts_Scroll__W4ADaaU-S9CsUc4wVbdR1w?skipIntro=true" target="_blank" rel="noopener"
+                  data-keywords="account alerts, notifications, set up alerts, balance alert, transaction alert, email alert, text alert, online banking, digital banking, security alert, alert setup, manage alerts, account notification, alert preferences, customize alerts">
+                  Set Up Alerts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Retrieve_Your_Username_for_Online_Banking_updated__mETgYndwREiD_RNpsE7CGQ" target="_blank" rel="noopener"
+                  data-keywords="retrieve username, forgot username, recover username, find username, login help, account access, user ID, digital banking, lost username, username recovery, sign in, online banking, credentials, user name, username assistance">
+                  Retrieve Username
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Resetting_Your_Password_Updated__8PlkmciuTBWa2UKLqZIi-g" target="_blank" rel="noopener"
+                  data-keywords="reset password, forgot password, change password, password help, recover password, online banking, digital banking, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Unlocking_Your_Online_Banking_Account_updated__8bnm76hxQGm5awuCvG4Ing" target="_blank" rel="noopener"
+                  data-keywords="unlock account, locked out, regain access, account locked, reset lock, online banking, digital banking, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </a>
+ </ul>
+          </div>
+        </div>
+
+        <!-- Mobile Banking Collapsible Section -->
+<div class="card shadow-sm mb-4 section-mobile d-none d-sm-block" id="mobileBankingSection">
+          <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+               tabindex="0" aria-expanded="false" aria-controls="mobileBankingContent">
+            <span class="fw-bold fs-5 section-header-title">
+              <i class="bi bi-phone section-header-icon"></i> Mobile Banking Guides
+            </span>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div class="collapse" id="mobileBankingContent">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/open-a-new-account.html"
+                  data-keywords="open account, new account, create account, start account, mobile application, join, membership, sign up, enroll, apply, mobile banking, open savings, open checking, mobile app, account opening, become a member, non member, join credit union, new member">
+                  Open a New Account
+                </a>
+              </li>
+  <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/making-a-mobile-deposit.html"
+                  data-keywords="mobile deposit, deposit check, remote deposit, deposit via app, check deposit, mobile banking, deposit funds, take picture of check, deposit money, online deposit, mobile app, deposit to account, e-deposit, digital deposit">
+                  Mobile Deposit
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_a_Bill_Pay_on_the_Mobile_App__Wz36k-SpSd2hKtCb2b3hlg" target="_blank" rel="noopener"
+                  data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment, pay from phone">
+                  Add a Biller &amp; Pay Bills
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/add-external-account.html"
+                  data-keywords="add external account, external transfer, other bank, link account, mobile app, ACH, transfer to another bank, mobile banking, transfer to external, add bank account, verify external account, external institution">
+                  Add an External Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_money_to_a_person_on_the_Mobile_App__tPQAFyDySGWldFxlAXtefw" target="_blank" rel="noopener"
+                  data-keywords="send money, pay a person, person-to-person, P2P, mobile payment, transfer to friend, mobile app, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, mobile banking, external payment">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Transfer_Between_Your_Personal_Accounts_on_the_Mobile_App__VLM_L5yIT-KSnYizX3_09Q?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+                  data-keywords="Transfer, mobile, digital, schedule, checking to saving">
+                  Transfer Between Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Cancel_Scheduled_Transfers_on_the_Mobile_App__Gh6gNJ68R-maMyv8V8wUgw?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+                  data-keywords="Transfer, mobile, digital, edit, delete, schedule, checking to saving">
+                  Edit or Delete Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Sending_money_to_another_CWCU_account_in_the_Mobile_Apps_updated__rXqytzGlSwKNe4GH9Zh9FA" target="_blank" rel="noopener"
+                  data-keywords="transfer to CWCU account, internal transfer, send money, move funds, mobile app, transfer to self, transfer between accounts, mobile banking, digital banking, transfer to member, add account, transfer funds, send to savings, send to checking, add internal account, for transfers">
+                  Add Internal Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-external-transfers.html" data-keywords="edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-person-payments.html" data-keywords="edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management">
+                  Edit Scheduled Person Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/edit-scheduled-bill-payments.html" data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/viewer/Make_Internal_Loan_Payments_and_Cancel_Scheduled_Payments_on_the_Mobile_App__SIviIGqYTGiJ0FxtOC4mQw" target="_blank" rel="noopener"
+                  data-keywords="edit scheduled payment, payment, mobile app, checking to loan, scheduled payment, digital banking, mobile banking, update payment, delete payment, update transfer, delete transfer">
+                  Internal Loan Payments &amp; Cancel Scheduled Internal Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Viewing_eStatements_in_the_Mobile_App__3u_f_lRjTAOA0OTVV5lF1A" target="_blank" rel="noopener"
+                  data-keywords="eStatements, view statements, mobile statements, digital statements, account history, download statement, paperless, statement access, transaction history, mobile banking, monthly statement, account summary, statement download, view on phone">
+                  View eStatements
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Unlock_account_on_Mobile_App__wjTf4eBiQFGpEd-LZKCj9w" target="_blank" rel="noopener"
+                  data-keywords="unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Retrieve_User_ID_on_Mobile_App__LumACkRtRASFZKbOB-DfsA" target="_blank" rel="noopener"
+                  data-keywords="retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Reset_password_in_the_Mobile_App__wEzuWJ-DRdGDE-GjGuIPDg" target="_blank" rel="noopener"
+                  data-keywords="reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-billers.html" data-keywords="delete biller, remove biller, bill pay, manage billers, mobile app, mobile banking, digital banking, remove payee, biller management, delete saved biller">
+                  Delete Saved Billers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-external-accounts.html" data-keywords="delete external account, remove external account, mobile app, mobile banking, digital banking, manage external accounts, remove bank account, delete saved account, external transfer, account management">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/mobile/delete-saved-people.html" data-keywords="delete saved people, remove payee, person-to-person, P2P, mobile app, mobile banking, digital banking, manage payees, remove person, delete contact, external payment, payment management">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+            </ul>
+          </div>
+    </div>
+
+<!-- Online-Banking guides – MOBILE-ONLY copy -->
+<div id="onlineGuidesMobileOnly" class="d-block d-sm-none">
+  <div class="card shadow-sm mb-4 section-online">
+    <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+         tabindex="0" aria-expanded="false" aria-controls="onlineBankingContentMobile">
+      <span class="fw-bold fs-5 section-header-title">
+        <i class="bi bi-globe section-header-icon"></i> Online Banking Guides
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+
+    <div class="collapse" id="onlineBankingContentMobile">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_to_Open_an_Account_Online_for_New_Members__tYR3uldtRnmQF9Kv6ax56Q" target="_blank" rel="noopener"
+            data-keywords="open account, new account, create account, start account, online application, join, membership, sign up, enroll, apply, digital banking, open savings, open checking, online banking, account opening, become a member, non member, join credit union, new member">
+            Open an Account (for new members)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Send_Money_to_a_Person_in_Online_Banking_Scroll__V8F7XmzNSSKp7ujjKpYzPw" target="_blank" rel="noopener"
+            data-keywords="send money, pay a person, person-to-person, P2P, transfer to friend, online payment, digital banking, online banking, send funds, pay someone, quick pay, transfer to individual, send cash, member to member, external payment">
+            Send Money to a Person
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Online_Banking_tour_Updated__ViSDITX0QLyI9BCEY-61eQ" target="_blank" rel="noopener"
+            data-keywords="online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking">
+            Online Banking Tour
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 " href="guides/online/edit-scheduled-person-payments.html" data-keywords="delete external payment, remove payment, cancel payment, online banking, external transfer, payment management, digital banking, delete scheduled payment, stop payment, external account, payment removal">
+                  Edit Scheduled Person Payments
+                </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Add_a_CWCU_account_for_internal_transfers_updated__5FwYbk1cT5-xT2RUv0A15Q" target="_blank" rel="noopener"
+            data-keywords="add account, internal transfer, CWCU account, transfer funds, move money, link account, add member, online banking, digital banking, transfer between accounts, internal move, add savings, add checking, connect account, transfer to self, for transfers">
+            Add Internal Account for Transfers
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/viewer/Transfer_Between_Your_Personal_Accounts_and_Cancel_Scheduled_Transfers__D-MunIbuRN6zLCqmHDeORQ" target="_blank" rel="noopener"
+            data-keywords="Transfer, schedule, checking to saving, saving to checking">
+            Transfer Between Personal Accounts
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/embed/Editing_or_Deleting_Scheduled_Internal_Transfers__5GMA5cviTp-xbf_f-Ty4PA?skipIntro=true&as=scrollable" target="_blank" rel="noopener"
+            data-keywords="Transfer, schedule, edit, delete, checking to saving, saving to checking">
+            Edit or Delete Scheduled Internal Transfers
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Transferring_to_an_External_Account_in_Online_Banking_updated__AgWVId8LQzWlyZzRLyR2EA" target="_blank" rel="noopener"
+            data-keywords="transfer to external account, send money, external transfer, other bank, move funds, ACH, wire transfer, digital banking, online banking, transfer out, pay another bank, link external, outside account, transfer to another institution">
+            Transfer to External Account
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_To_Add_A_Biller_and_send_Bill_Payments__YmZmsupATSCI2hSOQPZAgw" target="_blank" rel="noopener"
+            data-keywords="bill pay, pay bills, add biller, send payment, online payment, set up bill pay, manage bills, payee, recurring payment, utilities, credit card payment, digital banking, online banking, make payment, schedule payment">
+            Add a Biller &amp; Pay Bills
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 " href="guides/online/edit-scheduled-bill-payments.html" data-keywords="edit scheduled payment, delete biller, manage bill pay, online banking, scheduled bill, payment management, digital banking, update payment, remove biller, bill pay, payment edit, biller removal">
+                  Edit Scheduled Bill Payments &amp; Delete Billers
+                </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Accessing_Various_Forms_Online_Updated__HCu4JDd_RsajrDSe2OzKXQ" target="_blank" rel="noopener"
+            data-keywords="access forms, online forms, digital forms, download forms, fill out forms, submit forms, account forms, application forms, request forms, online banking, paperwork, documentation, e-forms, electronic forms, member forms">
+            Access Additional Forms
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/How_To_Access_Your_eStatements_Online__ErfvLfT2TfGP9f_oh7umaA" target="_blank" rel="noopener"
+            data-keywords="eStatements, view statements, online statements, digital statements, account history, download statement, paperless, statement access, transaction history, online banking, digital banking, monthly statement, account summary, statement download">
+            View eStatements
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Registering_a_credit_card_online_updated__9R3b3N75R4COi2lL8ehG1Q" target="_blank" rel="noopener"
+            data-keywords="register credit card, add credit card, link card, online credit card, activate card, card registration, digital banking, online banking, new card, set up card, credit card access, manage card, card setup, enroll card, card services">
+            Register Credit Card
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Setting_up_Account_Alerts_Scroll__W4ADaaU-S9CsUc4wVbdR1w?skipIntro=true" target="_blank" rel="noopener"
+            data-keywords="account alerts, notifications, set up alerts, balance alert, transaction alert, email alert, text alert, online banking, digital banking, security alert, alert setup, manage alerts, account notification, alert preferences, customize alerts">
+            Set Up Alerts
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Retrieve_Your_Username_for_Online_Banking_updated__mETgYndwREiD_RNpsE7CGQ" target="_blank" rel="noopener"
+            data-keywords="retrieve username, forgot username, recover username, find username, login help, account access, user ID, digital banking, lost username, username recovery, sign in, online banking, credentials, user name, username assistance">
+            Retrieve Username
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Resetting_Your_Password_Updated__8PlkmciuTBWa2UKLqZIi-g" target="_blank" rel="noopener"
+            data-keywords="reset password, forgot password, change password, password help, recover password, online banking, digital banking, login help, update password, password reset, security, credentials, password assistance, password recovery">
+            Reset Password
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-link text-decoration-none p-0 guide-pending" href="https://scribehow.com/shared/Unlocking_Your_Online_Banking_Account_updated__8bnm76hxQGm5awuCvG4Ing" target="_blank" rel="noopener"
+            data-keywords="unlock account, locked out, regain access, account locked, reset lock, online banking, digital banking, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+            Unlock Account
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+     </section>
+
+    <div class="d-flex justify-content-end mt-4">
+      <button id="feedbackBtn" class="btn btn-brand" aria-label="Send Feedback">Send Feedback</button>
+    </div>
+
+    <!-- Fun Fact Card -->
+<div id="funFactCard" class="fun-fact-card" style="display:none;">
+  <div class="fun-fact-left">
+    <span class="fun-fact-icon"><i class="bi bi-lightbulb"></i></span>
+    <span class="fun-fact-title">Fun Fact:</span>
+  </div>
+  <div class="fun-fact-right">
+    <span id="funFactText"></span>
+  </div>
+</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div>
+      <a href="https://www.centralwcu.org" target="_blank" rel="noopener" class="footer-link">Centralwcu.org</a>
+      <span class="footer-divider">|</span>
+      <a href="https://www.centralwcu.org/privacy-policy" target="_blank" rel="noopener" class="footer-link">Privacy Policy</a>
+      <span class="footer-divider">|</span>
+      <span>© 2024 Central Willamette Credit Union</span>
+    </div>
+  </footer>
+
+
+<!-- Feedback Modal -->
+<div class="modal fade" id="feedbackModal" tabindex="-1"
+     aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">   <!-- “lg” gives the iframe room -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="feedbackModalLabel">Send Feedback</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+
+      <!-- NEW body → Smartsheet in an iframe -->
+      <div class="modal-body p-0" style="height:70vh;">
+        <iframe id="feedbackIframe"
+                src="https://app.smartsheet.com/b/form/9d48c40efee44ca0aab817f40d58ee50"
+                style="border:0;width:100%;height:100%;"
+                loading="lazy"
+                title="Feedback form"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <script src="js/hub.js"></script></body>
+</html>
+
+
