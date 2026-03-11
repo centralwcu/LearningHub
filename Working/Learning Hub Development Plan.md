@@ -146,6 +146,21 @@ With the following CSS included in the guide's `<style>` block (legacy reference
 - Favorites only apply to converted (local) guides
 - All unconverted guide data preserved in `Working/guides-to-convert.json`
 
+### guide.css Design Decisions
+
+All guide page styles live in `css/guide.css`. The following design rules are established and must be preserved when updating the stylesheet:
+
+| Element | Rule |
+|---|---|
+| **Screenshot borders** | `.image-container img` has `border: 1px solid #cbd5e1` and `border-radius: 6px` — subtle gray outline so screenshots don't blend into the white step card background |
+| **Tip/info card text** | `.tip-text` and `.info-text` use `color: #166534` (dark green) to match the light green card background |
+| **Warning card text** | `.warning-text` uses `color: #991b1b` (dark red) to match the light red card background |
+| **Mobile: CW logo** | `.icon-wrapper` is hidden via `display: none` on screens `< 768px` — logo is shown on desktop only for mobile guides to reclaim header space |
+| **Mobile: header padding** | `.header` `padding-top` is reduced from `30px` to `10px` on screens `< 768px` |
+
+> These rules apply to **all** guide pages (mobile and online) since they share `guide.css`. The logo hide/padding reduction only takes visual effect on mobile-width screens via a `@media (max-width: 767px)` rule — no HTML changes are needed per guide.
+
+---
 ### Guide Queue File: `Working/guides-to-convert.json`
 
 This file is the **single source of truth** for all guides still to be converted. For each guide it stores:

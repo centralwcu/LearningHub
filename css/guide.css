@@ -26,11 +26,20 @@ body {
     padding-top: 30px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
     .header {
-        flex-direction: row;
+        padding-top: 10px;
+    }
+
+    .icon-wrapper {
+        display: none;
+    }
+
+    .container {
+        padding-bottom: 60px;
     }
 }
+
 
 .icon-wrapper {
     position: relative;
@@ -40,12 +49,6 @@ body {
     flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
-    .icon-wrapper {
-        margin-bottom: 0;
-        margin-right: 45px;
-    }
-}
 
 .icon-circle {
     position: relative;
@@ -92,10 +95,35 @@ h1 {
 }
 
 .step-card {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.step-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: #e2e8f0;
+}
+
+.step-card:last-child::after {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .step-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 28px 32px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .step-card::after {
+        display: none;
+    }
 }
 
 .step-header {
@@ -135,6 +163,7 @@ h1 {
 }
 
 .image-container {
+    position: relative;
     background-color: #f1f5f9;
     border-radius: 10px;
     padding: 0;
@@ -143,6 +172,7 @@ h1 {
     align-items: center;
     overflow: hidden;
     width: 100%;
+    box-shadow: 0 0 0 1px #cbd5e1, 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .image-container img {
@@ -150,7 +180,9 @@ h1 {
     max-height: 750px;
     object-fit: contain;
     display: block;
+    border-radius: 10px;
 }
+
 
 .warning-card {
     background-color: #fef2f2;
@@ -171,7 +203,7 @@ h1 {
 
 .warning-text {
     font-size: 1em;
-    color: #0f172a;
+    color: #991b1b;
 }
 
 .warning-text strong {
@@ -197,7 +229,7 @@ h1 {
 
 .info-text {
     font-size: 1em;
-    color: #0f172a;
+    color: #166534;
 }
 
 .info-text strong {
@@ -223,7 +255,7 @@ h1 {
 
 .tip-text {
     font-size: 1em;
-    color: #0f172a;
+    color: #166534;
 }
 
 .tip-text strong {
@@ -285,6 +317,7 @@ ol.step-list li {
     justify-content: center;
     padding: 0 24px;
     height: 52px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
 .mobile-topnav a {

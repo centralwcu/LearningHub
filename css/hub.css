@@ -52,6 +52,22 @@ main.container-custom { flex: 1 0 auto; }
 .collapse-toggle:hover { background-color: var(--brand-highlight); }
 .guide-highlight, .list-group-item.search-match { background-color: var(--brand-highlight) !important; transition: background-color 0.3s; }
 .list-group-item:hover { background-color: var(--brand-highlight) !important; transition: background-color 0.2s; }
+.list-group-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.list-group-item.search-hidden { display: none !important; }
+.list-group-item .btn-link {
+  flex: 1;
+  text-align: left;
+}
+.list-group-item .favorite-btn {
+  flex: 0 0 auto;
+  margin-left: 0;
+  padding-top: 0.1em;
+}
 .container-custom { max-width: 700px; margin: 0 auto; }
 a, .btn-link, .nav-link { color: var(--brand-text) !important; }
 a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !important; }
@@ -62,13 +78,15 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   background: var(--brand-card);
   border-left: 6px solid var(--brand-orange);
   border-radius: 12px;
   padding: 1.1rem 1.5rem;
   box-shadow: 0 2px 12px var(--brand-card-shadow);
-  margin: 2rem auto 0;
+  margin: 2rem 0 0;
   gap: 1rem;
+  box-sizing: border-box;
 }
 .fun-fact-left {
   display: flex;
@@ -88,6 +106,7 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
 }
 .fun-fact-right {
   flex: 1;
+  min-width: 0;
   font-size: 1.15rem;
   color: var(--brand-orange);
   line-height: 1.4;
@@ -96,6 +115,22 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
 
 @media (max-width: 900px) {
   .brand-logo { height: 60px; width: 120px; }
+}
+
+@media (max-width: 760px) and (min-width: 601px) {
+  .brand-header .container {
+    flex-wrap: wrap;
+    gap: 0.4rem 0;
+  }
+  .brand-header .container > div:last-child {
+    width: 100%;
+  }
+  .floating-search-bar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
 }
 
 .floating-search-bar {
@@ -159,6 +194,52 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
 }
 
 
+/* Fullscreen Feedback Overlay */
+.feedback-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.feedback-close-btn {
+  position: fixed;
+  top: 12px;
+  right: 20px;
+  z-index: 10000;
+  background: transparent;
+  color: white;
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.feedback-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.feedback-close-btn:active {
+  transform: scale(0.95);
+}
+
+.feedback-close-btn i {
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 600px) {
   .container-custom {
     max-width: 100% !important;
@@ -173,11 +254,32 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
   .brand-logo-wrapper { padding: 0; }
   .brand-logo { width: 100px !important; height: 40px !important; padding: 2px 8px; }
   .floating-search-bar { width: 100%; min-width: 0; max-width: 100%; margin: 0.5rem 0 0 0; }
-  .card, .fun-fact-card { margin: 1rem 0 !important; padding: 0.5rem !important; }
+  .card { margin: 1rem 0 !important; }
+  .fun-fact-card { 
+    margin: 1rem 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem 0.85rem !important; 
+  }
   .list-group-item { padding: 0.5rem 0.75rem !important; font-size: 1rem; }
   .favorite-btn { font-size: 1.1rem !important; min-height: 44px; }
   .footer-custom { font-size: 0.95rem; padding: 16px 0 8px; }
   .footer-custom .footer-divider { display: none; }
   .footer-custom a, .footer-custom span { display: block; margin-bottom: 4px; }
   html, body { font-size: 1.05rem; }
+}
+
+@media (max-width: 500px) {
+  .fun-fact-left {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .fun-fact-title {
+    white-space: normal !important;
+    display: inline-block;
+    line-height: 1.2;
+  }
+  .fun-fact-word {
+    display: block;
+  }
 }

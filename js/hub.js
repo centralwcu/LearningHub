@@ -68,17 +68,18 @@ searchInput.addEventListener('input', () => {
     if (!el) return;
     const txt = el.textContent.trim().toLowerCase();
     const keys = (el.getAttribute('data-keywords')||'').toLowerCase();
-    if (!search || txt.includes(search) || keys.includes(search)) {
-      item.style.display = '';
-      if (search && (txt.includes(search)||keys.includes(search))) {
+    if (search) {
+      if (txt.includes(search) || keys.includes(search)) {
+        item.classList.remove('search-hidden');
         item.classList.add('search-match');
         el.innerHTML = highlightText(el.textContent, search);
       } else {
+        item.classList.add('search-hidden');
         item.classList.remove('search-match');
         el.innerHTML = el.textContent;
       }
     } else {
-      item.style.display = 'none';
+      item.classList.remove('search-hidden');
       item.classList.remove('search-match');
       el.innerHTML = el.textContent;
     }
@@ -102,11 +103,13 @@ function addFavorite(title, url) {
     f.unshift({title, url});
     setFavorites(f);
     renderFavorites();
+    addFavoriteStars();
   }
 }
 function removeFavorite(url) {
   setFavorites(getFavorites().filter(x=>x.url!==url));
   renderFavorites();
+  addFavoriteStars();
 }
 
 let sortableFavorites = null;
@@ -188,21 +191,21 @@ function addFavoriteStars() {
       starBtn.innerHTML = '<i class="bi bi-star"></i>';
     }
   });
-  attachGuideBtnListeners();
 }
 
 // Initialize favorites & stars
 renderFavorites();
-setTimeout(addFavoriteStars, 200);
+setTimeout(addFavoriteStars, 0);
 document.getElementById('onlineBankingContent')?.addEventListener('transitionend', addFavoriteStars);
 document.getElementById('mobileBankingContent')?.addEventListener('transitionend', addFavoriteStars);
 document.getElementById('mobileBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
 document.getElementById('onlineBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
-searchInput.addEventListener('input', addFavoriteStars);
 
 // Feedback modal
 const feedbackBtn   = document.getElementById('feedbackBtn');
 const feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+const feedbackFullscreen = document.getElementById('feedbackFullscreen');
+const closeFeedbackBtn = document.getElementById('closeFeedbackFullscreen');
 
 const COOLDOWN_MS   = 15000;
 const MIN_OPEN_TIME = 15000;
@@ -213,9 +216,38 @@ let modalOpenTime = null;
 let minTimeTimer = null;
 let shouldCooldown = false;
 
+// Check if mobile (screen width <= 600px)
+function isMobile() {
+  return window.innerWidth <= 600;
+}
+
 feedbackBtn.addEventListener('click', () => {
   if (feedbackBtn.disabled) return;
-  feedbackModal.show();
+  
+  if (isMobile()) {
+    // Show fullscreen overlay on mobile
+    feedbackFullscreen.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    modalOpenTime = Date.now();
+    shouldCooldown = false;
+    minTimeTimer = setTimeout(() => { shouldCooldown = true; }, MIN_OPEN_TIME);
+  } else {
+    // Show modal on desktop
+    feedbackModal.show();
+  }
+});
+
+// Close fullscreen feedback
+closeFeedbackBtn.addEventListener('click', () => {
+  feedbackFullscreen.style.display = 'none';
+  document.body.style.overflow = '';
+  
+  if (minTimeTimer) { clearTimeout(minTimeTimer); minTimeTimer = null; }
+  if (shouldCooldown) {
+    startCooldown();
+  }
+  modalOpenTime = null;
+  shouldCooldown = false;
 });
 
 document.getElementById('feedbackModal').addEventListener('shown.bs.modal', () => {
