@@ -1,0 +1,822 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Hub | Central Willamette CU</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/hub.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="brand-header py-3 mb-4 shadow">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <span class="brand-logo-wrapper">
+          <img src="CWlogo.png" alt="Digital Banking" class="brand-logo shadow">
+        </span>
+        <div class="ms-3">
+          <div class="h3 mb-0 fw-bold">Digital Banking</div>
+          <div class="subtitle fs-5">Learning Hub</div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <form class="floating-search-bar me-2" autocomplete="off" onsubmit="return false;">
+          <i class="bi bi-search"></i>
+          <input id="searchInput" type="text" placeholder="Search guides…" aria-label="Search guides">
+          <i class="bi bi-x clear-btn" id="clearSearch" title="Clear search"></i>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="container container-custom mb-5">
+    <div class="row justify-content-center">
+      <section class="col-md-12" id="guidesList">
+        <!-- FAVORITES -->
+        <div id="favoritesSection" style="display:none;">
+          <div class="card shadow-sm mb-4">
+            <div class="card-header d-flex align-items-center">
+              <span class="fw-bold fs-5 section-header-title">
+                <i class="bi bi-star-fill section-header-icon"></i> Favorites
+              </span>
+            </div>
+            <ul id="favoritesList" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+
+  <div id="mobileGuidesMobileOnly" class="d-block d-sm-none">
+    <div class="card shadow-sm mb-4 section-mobile">
+      <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+           tabindex="0" aria-expanded="false" aria-controls="mobileBankingContentMobile">
+        <span class="fw-bold fs-5 section-header-title">
+          <i class="bi bi-phone section-header-icon"></i> Mobile Banking Guides
+        </span>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+      <div class="collapse" id="mobileBankingContentMobile">
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-key me-1"></i>Getting Started</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/digital-banking-enrollment.html"
+                  data-keywords="enrollment, enroll, sign up">
+                  Digital Banking Enrollment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/open-a-new-account.html"
+                  data-keywords="open account, new account, create account, start account, mobile application, join, membership, sign up, enroll, apply, mobile banking, open savings, open checking, mobile app, account opening, become a member, non member, join credit union, new member">
+                  Open a New Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/swap-between-business-and-personal-profiles.html"
+                  data-keywords="swap between business and personal profiles, mobile app, mobile banking, digital banking, swap, between, business, personal, profiles">
+                  Swap Between Business and Personal Profiles
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-gear me-1"></i>Account Services</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/unlock-account.html" data-keywords="unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/retrieve-user-id.html" data-keywords="retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/reset-password.html" data-keywords="reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/access-estatements.html"
+                  data-keywords="access estatements, mobile app, mobile banking, digital banking, access, estatements">
+                  Access eStatements
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-cash-coin me-1"></i>Deposits</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/make-a-mobile-deposit.html"
+                  data-keywords="make a mobile deposit, mobile app, mobile banking, digital banking, mobile deposit, check deposit, remote deposit, deposit funds, make, mobile, deposit">
+                  Make a Mobile Deposit
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-arrow-left-right me-1"></i>Internal Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/transfer-between-your-personal-accounts.html" data-keywords="transfer between your personal accounts, mobile app, mobile banking, digital banking, transfer funds, move money, move funds, transfer, between, your, personal, accounts">
+                  Transfer Between Your Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/transfer-to-another-cwcu-account.html" data-keywords="transfer to another cwcu account, mobile app, mobile banking, digital banking, transfer funds, move money, move funds, account management, manage accounts, transfer, another, cwcu, account">
+                  Transfer to Another CWCU Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/change-default-source-account-for-internal-transfers.html" data-keywords="change default source account for internal transfers, mobile app, mobile banking, digital banking, update, modify, edit, settings, preferences, manage, configure, account management, manage accounts, internal transfer, between accounts, CWCU account, change, default, source, account, internal, transfers">
+                  Change Default Source Account for Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/cancel-or-edit-scheduled-internal-transfers.html" data-keywords="cancel or edit scheduled internal transfers, mobile app, mobile banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, transfers">
+                  Cancel or Edit Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/making-internal-loan-payments.html" data-keywords="making internal loan payments, mobile app, mobile banking, digital banking, internal transfer, between accounts, CWCU account, loan payment, checking to loan, pay loan, making, internal, loan, payments">
+                  Making Internal Loan Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-bank2 me-1"></i>External Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/add-an-external-account-for-transfers.html"
+                  data-keywords="add an external account for transfers, mobile app, mobile banking, digital banking, add, link, connect, set up, external account, other bank, outside account, ACH, account management, manage accounts, external, account, transfers">
+                  Add an External Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-external-transfers.html" data-keywords="edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-external-accounts.html" data-keywords="delete external account, remove external account, mobile app, mobile banking, digital banking, manage external accounts, remove bank account, delete saved account, external transfer, account management">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-people-fill me-1"></i>Person-to-Person Payments</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/send-money-to-a-person.html" data-keywords="send money to a person, mobile app, mobile banking, digital banking, person-to-person, P2P, send money, pay someone, send, money, person">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-person-payments.html" data-keywords="edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management">
+                  Edit Scheduled Person Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-people-for-external-payments.html" data-keywords="delete saved people for external payments, mobile app, mobile banking, digital banking, delete, remove, manage, person-to-person, P2P, manage payees, remove person, external account, other bank, outside account, ACH, saved, people, external, payments">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-receipt me-1"></i>Bill Pay</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/send-a-bill-payment.html" data-keywords="send a bill payment, mobile app, mobile banking, digital banking, bill pay, pay bills, biller, payee, make payment, schedule payment, scheduled payment, send, bill, payment">
+                  Send a Bill Payment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-bill-payments.html" data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-billers.html" data-keywords="delete biller, remove biller, bill pay, manage billers, mobile app, mobile banking, digital banking, remove payee, biller management, delete saved biller">
+                  Delete Saved Billers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/cancel-or-edit-scheduled-payments.html" data-keywords="cancel or edit scheduled payments, mobile app, mobile banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, payments">
+                  Cancel or Edit Scheduled Payments
+                </a>
+              </li>
+</ul>
+     </div>
+    </div>
+  </div>
+
+ <div id="guidesFlexContainer">
+        <!-- Online Banking Collapsible Section -->
+<div class="card shadow-sm mb-4 section-online d-none d-sm-block"
+     id="onlineBankingSection">
+          <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+               tabindex="0" aria-expanded="false" aria-controls="onlineBankingContent">
+            <span class="fw-bold fs-5 section-header-title">
+              <i class="bi bi-globe section-header-icon"></i> Online Banking Guides
+            </span>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div class="collapse" id="onlineBankingContent">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-key me-1"></i>Getting Started</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/digital-banking-enrollment.html"
+                  data-keywords="online banking enrollment, enroll, sign up">
+                  Digital Banking Enrollment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/online/online-banking-tour.html" data-keywords="online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking">
+                  Online Banking Tour
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/setting-up-account-alerts.html"
+                  data-keywords="setting up account alerts, online banking, digital banking, account management, manage accounts, setting, account, alerts">
+                  Setting up Account Alerts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/swap-between-business-and-personal-profiles.html"
+                  data-keywords="swap between business and personal profiles, online banking, digital banking, swap, between, business, personal, profiles">
+                  Swap Between Business and Personal Profiles
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-gear me-1"></i>Account Services</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/resetting-your-password.html"
+                  data-keywords="resetting your password, online banking, digital banking, reset password, forgot password, password help, login help, credentials, resetting, your, password">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/retrieve-your-username.html"
+                  data-keywords="retrieve your username, online banking, digital banking, forgot username, recover username, login help, credentials, retrieve, username">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/unlocking-your-online-banking-account.html"
+                  data-keywords="unlocking your online banking account, online banking, digital banking, account management, manage accounts, unlocking, online, banking, account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/access-estatements.html"
+                  data-keywords="access estatements, online banking, digital banking, access, estatements">
+                  Access eStatements
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/accessing-various-forms-online.html"
+                  data-keywords="accessing various forms online, online banking, digital banking, accessing, various, forms, online">
+                  Accessing Various Forms Online
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-person-lines-fill me-1"></i>Account Management</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/open-a-new-account-online.html"
+                  data-keywords="open a new account online, online banking, digital banking, account management, manage accounts, open, account, online">
+                  Open a New Account Online
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/registering-a-credit-card-online.html"
+                  data-keywords="registering a credit card online, online banking, digital banking, registering, credit, card, online">
+                  Access Your CW Credit Card Online
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-arrow-left-right me-1"></i>Internal Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/transfer-between-your-personal-accounts.html"
+                  data-keywords="transfer between your personal accounts, online banking, digital banking, transfer funds, move money, move funds, transfer, between, your, personal, accounts">
+                  Transfer Between Your Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/add-a-cwcu-account-for-internal-transfers.html"
+                  data-keywords="add a cwcu account for internal transfers, online banking, digital banking, add, link, connect, set up, account management, manage accounts, internal transfer, between accounts, CWCU account, cwcu, account, internal, transfers">
+                  Add a CWCU Account for Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/cancel-or-edit-scheduled-internal-payments.html"
+                  data-keywords="cancel or edit scheduled internal payments, online banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, payments">
+                  Cancel or Edit Scheduled Internal Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-scheduled-internal-transfers.html"
+                  data-keywords="edit or delete scheduled internal transfers, online banking, digital banking, edit, update, modify, change, delete, remove, manage, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, transfers">
+                  Edit or Delete Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/make-internal-loan-payments.html"
+                  data-keywords="make internal loan payments, online banking, digital banking, internal transfer, between accounts, CWCU account, loan payment, checking to loan, pay loan, make, internal, loan, payments">
+                  Making Internal Loan Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-bank2 me-1"></i>External Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/transferring-to-an-external-account.html"
+                  data-keywords="transferring to an external account, online banking, digital banking, external account, other bank, outside account, ACH, account management, manage accounts, transferring, external, account">
+                  Transferring to an External Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-scheduled-external-transfers.html"
+                  data-keywords="edit scheduled external transfers, online banking, digital banking, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, external account, other bank, outside account, ACH, external, transfers">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-external-payments-.html"
+                  data-keywords="edit or delete external payments , online banking, digital banking, edit, update, modify, change, delete, remove, manage, external account, other bank, outside account, ACH, external, payments">
+                  Edit or Delete External Payments 
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/deleted-saved-external-accounts.html"
+                  data-keywords="deleted saved external accounts, online banking, digital banking, external account, other bank, outside account, ACH, deleted, saved, external, accounts">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-people-fill me-1"></i>Person-to-Person Payments</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/send-money-to-a-person.html"
+                  data-keywords="send money to a person, online banking, digital banking, person-to-person, P2P, send money, pay someone, send, money, person">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/delete-a-saved-person.html"
+                  data-keywords="delete a saved person, delete, remove, manage, person-to-person, P2P">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-receipt me-1"></i>Bill Pay</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/send-bill-payments.html"
+                  data-keywords="send bill payments, online banking, digital banking, bill pay, pay bills, biller, payee, send, bill, payments">
+                  Send a Bill Payment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/add-a-biller-for-bill-payments.html"
+                  data-keywords="add a biller for bill payments, online banking, digital banking, add, link, connect, set up, bill pay, biller management, payee, manage billers, pay bills, biller, bill, payments">
+                  Add a Biller for Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-scheduled-bill-pay-payments-.html"
+                  data-keywords="edit or delete scheduled bill pay payments , online banking, digital banking, edit, update, modify, change, delete, remove, manage, scheduled, edit scheduled, cancel scheduled, bill pay, pay bills, biller, payee, bill, payments">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/delete-bill-pay-billers.html"
+                  data-keywords="delete bill pay billers, online banking, digital banking, delete, remove, manage, bill pay, pay bills, biller, payee, bill, billers">
+                  Delete Saved Billers
+                </a>
+              </li>
+</ul>
+          </div>
+        </div>
+
+        <!-- Mobile Banking Collapsible Section -->
+<div class="card shadow-sm mb-4 section-mobile d-none d-sm-block" id="mobileBankingSection">
+          <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+               tabindex="0" aria-expanded="false" aria-controls="mobileBankingContent">
+            <span class="fw-bold fs-5 section-header-title">
+              <i class="bi bi-phone section-header-icon"></i> Mobile Banking Guides
+            </span>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div class="collapse" id="mobileBankingContent">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-key me-1"></i>Getting Started</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/digital-banking-enrollment.html"
+                  data-keywords="enrollment, enroll, sign up">
+                  Digital Banking Enrollment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/open-a-new-account.html"
+                  data-keywords="open account, new account, create account, start account, mobile application, join, membership, sign up, enroll, apply, mobile banking, open savings, open checking, mobile app, account opening, become a member, non member, join credit union, new member">
+                  Open a New Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/swap-between-business-and-personal-profiles.html"
+                  data-keywords="swap between business and personal profiles, mobile app, mobile banking, digital banking, swap, between, business, personal, profiles">
+                  Swap Between Business and Personal Profiles
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-gear me-1"></i>Account Services</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/unlock-account.html" data-keywords="unlock account, mobile, locked out, regain access, account locked, reset lock, mobile banking, app, account help, login issues, unlock profile, restore access, account security, troubleshooting, unlock user, enable account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/retrieve-user-id.html" data-keywords="retrieve user id, forgot username, recover username, find username, login help, account access, user ID, mobile banking, lost username, username recovery, sign in, credentials, user name, username assistance, app">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/reset-password.html" data-keywords="reset password, forgot password, change password, password help, recover password, mobile banking, app, login help, update password, password reset, security, credentials, password assistance, password recovery">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/access-estatements.html"
+                  data-keywords="access estatements, mobile app, mobile banking, digital banking, access, estatements">
+                  Access eStatements
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-cash-coin me-1"></i>Deposits</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/make-a-mobile-deposit.html"
+                  data-keywords="make a mobile deposit, mobile app, mobile banking, digital banking, mobile deposit, check deposit, remote deposit, deposit funds, make, mobile, deposit">
+                  Make a Mobile Deposit
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-arrow-left-right me-1"></i>Internal Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/transfer-between-your-personal-accounts.html" data-keywords="transfer between your personal accounts, mobile app, mobile banking, digital banking, transfer funds, move money, move funds, transfer, between, your, personal, accounts">
+                  Transfer Between Your Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/transfer-to-another-cwcu-account.html" data-keywords="transfer to another cwcu account, mobile app, mobile banking, digital banking, transfer funds, move money, move funds, account management, manage accounts, transfer, another, cwcu, account">
+                  Transfer to Another CWCU Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/change-default-source-account-for-internal-transfers.html" data-keywords="change default source account for internal transfers, mobile app, mobile banking, digital banking, update, modify, edit, settings, preferences, manage, configure, account management, manage accounts, internal transfer, between accounts, CWCU account, change, default, source, account, internal, transfers">
+                  Change Default Source Account for Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/cancel-or-edit-scheduled-internal-transfers.html" data-keywords="cancel or edit scheduled internal transfers, mobile app, mobile banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, transfers">
+                  Cancel or Edit Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/making-internal-loan-payments.html" data-keywords="making internal loan payments, mobile app, mobile banking, digital banking, internal transfer, between accounts, CWCU account, loan payment, checking to loan, pay loan, making, internal, loan, payments">
+                  Making Internal Loan Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-bank2 me-1"></i>External Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/add-an-external-account-for-transfers.html"
+                  data-keywords="add an external account for transfers, mobile app, mobile banking, digital banking, add, link, connect, set up, external account, other bank, outside account, ACH, account management, manage accounts, external, account, transfers">
+                  Add an External Account for Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-external-transfers.html" data-keywords="edit scheduled external transfer, delete saved external account, mobile app, external transfer, manage external accounts, scheduled payment, digital banking, mobile banking, update transfer, remove account, transfer management">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-external-accounts.html" data-keywords="delete external account, remove external account, mobile app, mobile banking, digital banking, manage external accounts, remove bank account, delete saved account, external transfer, account management">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-people-fill me-1"></i>Person-to-Person Payments</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/send-money-to-a-person.html" data-keywords="send money to a person, mobile app, mobile banking, digital banking, person-to-person, P2P, send money, pay someone, send, money, person">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-person-payments.html" data-keywords="edit scheduled person payment, delete saved people, mobile app, person-to-person, P2P, manage payees, scheduled payment, digital banking, mobile banking, update payment, remove person, payee management">
+                  Edit Scheduled Person Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-people-for-external-payments.html" data-keywords="delete saved people for external payments, mobile app, mobile banking, digital banking, delete, remove, manage, person-to-person, P2P, manage payees, remove person, external account, other bank, outside account, ACH, saved, people, external, payments">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-receipt me-1"></i>Bill Pay</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/send-a-bill-payment.html" data-keywords="send a bill payment, mobile app, mobile banking, digital banking, bill pay, pay bills, biller, payee, make payment, schedule payment, scheduled payment, send, bill, payment">
+                  Send a Bill Payment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/edit-scheduled-bill-payments.html" data-keywords="edit scheduled bill payment, delete saved biller, mobile app, bill pay, manage billers, scheduled payment, digital banking, mobile banking, update payment, remove biller, biller management">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/delete-saved-billers.html" data-keywords="delete biller, remove biller, bill pay, manage billers, mobile app, mobile banking, digital banking, remove payee, biller management, delete saved biller">
+                  Delete Saved Billers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/mobile/cancel-or-edit-scheduled-payments.html" data-keywords="cancel or edit scheduled payments, mobile app, mobile banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, payments">
+                  Cancel or Edit Scheduled Payments
+                </a>
+              </li>
+</ul>
+          </div>
+    </div>
+
+<!-- Online-Banking guides – MOBILE-ONLY copy -->
+<div id="onlineGuidesMobileOnly" class="d-block d-sm-none">
+  <div class="card shadow-sm mb-4 section-online">
+    <div class="card-header d-flex justify-content-between align-items-center collapse-toggle"
+         tabindex="0" aria-expanded="false" aria-controls="onlineBankingContentMobile">
+      <span class="fw-bold fs-5 section-header-title">
+        <i class="bi bi-globe section-header-icon"></i> Online Banking Guides
+      </span>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+
+    <div class="collapse" id="onlineBankingContentMobile">
+      <ul class="list-group list-group-flush">
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-key me-1"></i>Getting Started</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/digital-banking-enrollment.html"
+                  data-keywords="enrollment,enroll, sign up">
+                  Digital Banking Enrollment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0 " href="guides/online/online-banking-tour.html" data-keywords="online banking, digital banking, overview, navigation, how to use, getting started, main menu, dashboard, features, tour, walkthrough, introduction, first time, basics, home page, online account, web banking, internet banking">
+                  Online Banking Tour
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/setting-up-account-alerts.html"
+                  data-keywords="setting up account alerts, online banking, digital banking, account management, manage accounts, setting, account, alerts">
+                  Setting up Account Alerts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/swap-between-business-and-personal-profiles.html"
+                  data-keywords="swap between business and personal profiles, online banking, digital banking, swap, between, business, personal, profiles">
+                  Swap Between Business and Personal Profiles
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-gear me-1"></i>Account Services</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/resetting-your-password.html"
+                  data-keywords="resetting your password, online banking, digital banking, reset password, forgot password, password help, login help, credentials, resetting, your, password">
+                  Reset Password
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/retrieve-your-username.html"
+                  data-keywords="retrieve your username, online banking, digital banking, forgot username, recover username, login help, credentials, retrieve, username">
+                  Retrieve User ID
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/unlocking-your-online-banking-account.html"
+                  data-keywords="unlocking your online banking account, online banking, digital banking, account management, manage accounts, unlocking, online, banking, account">
+                  Unlock Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/access-estatements.html"
+                  data-keywords="access estatements, online banking, digital banking, access, estatements">
+                  Access eStatements
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/accessing-various-forms-online.html"
+                  data-keywords="accessing various forms online, online banking, digital banking, accessing, various, forms, online">
+                  Accessing Various Forms Online
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-person-lines-fill me-1"></i>Account Management</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/open-a-new-account-online.html"
+                  data-keywords="open a new account online, online banking, digital banking, account management, manage accounts, open, account, online">
+                  Open a New Account Online
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/registering-a-credit-card-online.html"
+                  data-keywords="registering a credit card online, online banking, digital banking, registering, credit, card, online">
+                  Access Your CW Credit Card Online
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-arrow-left-right me-1"></i>Internal Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/transfer-between-your-personal-accounts.html"
+                  data-keywords="transfer between your personal accounts, online banking, digital banking, transfer funds, move money, move funds, transfer, between, your, personal, accounts">
+                  Transfer Between Your Personal Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/add-a-cwcu-account-for-internal-transfers.html"
+                  data-keywords="add a cwcu account for internal transfers, online banking, digital banking, add, link, connect, set up, account management, manage accounts, internal transfer, between accounts, CWCU account, cwcu, account, internal, transfers">
+                  Add a CWCU Account for Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/cancel-or-edit-scheduled-internal-payments.html"
+                  data-keywords="cancel or edit scheduled internal payments, online banking, digital banking, cancel, delete, remove, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, payments">
+                  Cancel or Edit Scheduled Internal Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-scheduled-internal-transfers.html"
+                  data-keywords="edit or delete scheduled internal transfers, online banking, digital banking, edit, update, modify, change, delete, remove, manage, scheduled, edit scheduled, cancel scheduled, internal transfer, between accounts, CWCU account, internal, transfers">
+                  Edit or Delete Scheduled Internal Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/make-internal-loan-payments.html"
+                  data-keywords="make internal loan payments, online banking, digital banking, internal transfer, between accounts, CWCU account, loan payment, checking to loan, pay loan, make, internal, loan, payments">
+                  Making Internal Loan Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-bank2 me-1"></i>External Transfers</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/transferring-to-an-external-account.html"
+                  data-keywords="transferring to an external account, online banking, digital banking, external account, other bank, outside account, ACH, account management, manage accounts, transferring, external, account">
+                  Transferring to an External Account
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-scheduled-external-transfers.html"
+                  data-keywords="edit scheduled external transfers, online banking, digital banking, edit, update, modify, change, scheduled, edit scheduled, cancel scheduled, external account, other bank, outside account, ACH, external, transfers">
+                  Edit Scheduled External Transfers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-external-payments-.html"
+                  data-keywords="edit or delete external payments , online banking, digital banking, edit, update, modify, change, delete, remove, manage, external account, other bank, outside account, ACH, external, payments">
+                  Edit or Delete External Payments 
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/deleted-saved-external-accounts.html"
+                  data-keywords="deleted saved external accounts, online banking, digital banking, external account, other bank, outside account, ACH, deleted, saved, external, accounts">
+                  Delete Saved External Accounts
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-people-fill me-1"></i>Person-to-Person Payments</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/send-money-to-a-person.html"
+                  data-keywords="send money to a person, online banking, digital banking, person-to-person, P2P, send money, pay someone, send, money, person">
+                  Send Money to a Person
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/delete-a-saved-person.html"
+                  data-keywords="delete a saved person, delete, remove, manage, person-to-person, P2P">
+                  Delete Saved People for External Payments
+                </a>
+              </li>
+              <li class="list-group-item guide-category-header">
+                <span class="guide-category-title"><i class="bi bi-receipt me-1"></i>Bill Pay</span>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/send-bill-payments.html"
+                  data-keywords="send bill payments, online banking, digital banking, bill pay, pay bills, biller, payee, send, bill, payments">
+                  Send a Bill Payment
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/add-a-biller-for-bill-payments.html"
+                  data-keywords="add a biller for bill payments, online banking, digital banking, add, link, connect, set up, bill pay, biller management, payee, manage billers, pay bills, biller, bill, payments">
+                  Add a Biller for Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/edit-or-delete-scheduled-bill-pay-payments-.html"
+                  data-keywords="edit or delete scheduled bill pay payments , online banking, digital banking, edit, update, modify, change, delete, remove, manage, scheduled, edit scheduled, cancel scheduled, bill pay, pay bills, biller, payee, bill, payments">
+                  Edit Scheduled Bill Payments
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a class="btn btn-link text-decoration-none p-0" href="guides/online/delete-bill-pay-billers.html"
+                  data-keywords="delete bill pay billers, online banking, digital banking, delete, remove, manage, bill pay, pay bills, biller, payee, bill, billers">
+                  Delete Saved Billers
+                </a>
+              </li>
+</ul>
+    </div>
+  </div>
+</div>
+     </section>
+    </div><!-- end .row -->
+
+    <div class="d-flex justify-content-end mt-4">
+      <button id="feedbackBtn" class="btn btn-brand" aria-label="Send Feedback">Send Feedback</button>
+    </div>
+
+    <!-- Fun Fact Card -->
+<div id="funFactCard" class="fun-fact-card" style="display:none;">
+  <div class="fun-fact-left">
+    <span class="fun-fact-icon"><i class="bi bi-lightbulb"></i></span>
+    <span class="fun-fact-title"><span class="fun-fact-word">Fun</span> <span class="fun-fact-word">Fact:</span></span>
+  </div>
+  <div class="fun-fact-right">
+    <span id="funFactText"></span>
+  </div>
+</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div>
+      <a href="https://www.centralwcu.org" target="_blank" rel="noopener" class="footer-link">Centralwcu.org</a>
+      <span class="footer-divider">|</span>
+      <a href="https://www.centralwcu.org/privacy-policy" target="_blank" rel="noopener" class="footer-link">Privacy Policy</a>
+      <span class="footer-divider">|</span>
+      <span>© 2024 Central Willamette Credit Union</span>
+    </div>
+  </footer>
+
+
+<!-- Feedback Modal (Desktop) -->
+<div class="modal fade" id="feedbackModal" tabindex="-1"
+     aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="feedbackModalLabel">Send Feedback</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0" style="height:70vh;">
+        <iframe id="feedbackIframe"
+                src="https://app.smartsheet.com/b/form/9d48c40efee44ca0aab817f40d58ee50"
+                style="border:0;width:100%;height:100%;"
+                loading="lazy"
+                title="Feedback form"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fullscreen Feedback Overlay (Mobile) -->
+<div id="feedbackFullscreen" class="feedback-fullscreen" style="display:none;">
+  <button type="button" class="feedback-close-btn" id="closeFeedbackFullscreen" aria-label="Close">
+    <i class="bi bi-x"></i>
+  </button>
+  <iframe id="feedbackIframeFullscreen"
+          src="https://app.smartsheet.com/b/form/9d48c40efee44ca0aab817f40d58ee50"
+          style="border:0;width:100%;height:100%;"
+          loading="lazy"
+          title="Feedback form"></iframe>
+</div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <script src="js/hub.js?v=2"></script></body>
+</html>
+
+
