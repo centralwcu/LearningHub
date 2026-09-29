@@ -160,6 +160,25 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
   cursor: default;
   user-select: none;
 }
+.list-group-item.guide-category-header {
+  background: #fff7f2 !important;
+  cursor: default !important;
+  padding-top: 0.38rem !important;
+  padding-bottom: 0.38rem !important;
+}
+.list-group-item.guide-category-header:not(:first-child) {
+  border-top: 1px solid #ffe0b2 !important;
+}
+.list-group-item.guide-category-header:hover {
+  background: #fff7f2 !important;
+}
+.guide-category-title {
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #ed5f2d;
+}
 .section-header-icon, .section-header-title .bi {
   font-size: 1.35em; color: var(--brand-orange);
   margin-right: .55em; vertical-align: middle;

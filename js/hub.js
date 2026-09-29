@@ -84,6 +84,17 @@ searchInput.addEventListener('input', () => {
       el.innerHTML = el.textContent;
     }
   });
+  // Show/hide category headers based on whether their group has visible guides
+  document.querySelectorAll('#guidesList .guide-category-header').forEach(header => {
+    if (!search) { header.classList.remove('search-hidden'); return; }
+    let hasVisible = false;
+    let next = header.nextElementSibling;
+    while (next && !next.classList.contains('guide-category-header')) {
+      if (!next.classList.contains('search-hidden')) { hasVisible = true; break; }
+      next = next.nextElementSibling;
+    }
+    header.classList.toggle('search-hidden', !hasVisible);
+  });
   if (search) {
     document.getElementById('onlineBankingContent')?.classList.add('show');
     document.getElementById('mobileBankingContent')?.classList.add('show');

@@ -357,8 +357,79 @@ function Generate-Keywords {
 }
 
 # ---------------------------------------------------------------------------
+# Helper: Determine the category header name for a guide title and section.
+# Returns the matching guide-category-title text used in index.html.
+# ---------------------------------------------------------------------------
+function Get-CategoryHeader {
+    param([string]$Title, [string]$Section)
+    $t = $Title.ToLower()
+
+    if ($Section -eq "mobile") {
+        if ($t -match 'unlock|retrieve user|reset password|user id|estatement') { return "Account Services" }
+        if ($t -match 'deposit')                                                  { return "Deposits" }
+        if ($t -match 'bill|biller')                                              { return "Bill Pay" }
+        if ($t -match '\bperson\b|people|p2p')                                   { return "Person-to-Person Payments" }
+        if ($t -match 'external')                                                 { return "External Transfers" }
+        if ($t -match 'internal|loan payment')                                    { return "Internal Transfers" }
+        return "Getting Started"
+    } else {
+        if ($t -match 'unlock|retrieve user|reset password|user id|estatement|various forms') { return "Account Services" }
+        if ($t -match 'bill|biller')                                                           { return "Bill Pay" }
+        if ($t -match '\bperson\b|people|p2p')                                                { return "Person-to-Person Payments" }
+        if ($t -match 'external')                                                              { return "External Transfers" }
+        if ($t -match 'internal|loan payment')                                                 { return "Internal Transfers" }
+        if ($t -match 'open.*account|credit card|registering')                                 { return "Account Management" }
+        return "Getting Started"
+    }
+}
+
+# ---------------------------------------------------------------------------
+# Helper: Find insertion index for a new <li> at the end of a named category
+# group within a section's guide list. Returns -1 if not found (caller falls back).
+# ---------------------------------------------------------------------------
+function Get-CategoryInsertPosition {
+    param(
+        [string]$Content,
+        [string]$SectionId,
+        [string]$CategoryName
+    )
+
+    # Locate the section
+    $sectionStart = $Content.IndexOf("id=`"$SectionId`"")
+    if ($sectionStart -lt 0) { return -1 }
+
+    # Locate the section's closing </ul>
+    $ulClose = $Content.IndexOf("</ul>", $sectionStart)
+    if ($ulClose -lt 0) { return -1 }
+
+    # Search for the category header by its unique closing-span pattern
+    $sectionSlice = $Content.Substring($sectionStart, $ulClose - $sectionStart)
+    $catMarker    = "$CategoryName</span>"
+    $catIdx       = $sectionSlice.IndexOf($catMarker)
+    if ($catIdx -lt 0) { return -1 }
+
+    # From after the category name, find the next guide-category-header (if any)
+    $searchFrom       = $sectionStart + $catIdx + $catMarker.Length
+    $nextHeaderAbsIdx = $Content.IndexOf("guide-category-header", $searchFrom)
+
+    if ($nextHeaderAbsIdx -lt 0 -or $nextHeaderAbsIdx -ge $ulClose) {
+        # Last category in section — insert before </ul>
+        return $ulClose
+    }
+
+    # Walk back to the opening <li of the next category header
+    $liTagStart = $Content.LastIndexOf("<li", $nextHeaderAbsIdx)
+    if ($liTagStart -lt 0 -or $liTagStart -le $sectionStart) { return $ulClose }
+
+    # Insert just before the whitespace-indented line that starts the next <li>
+    $priorNl = $Content.LastIndexOf("`n", $liTagStart - 1)
+    if ($priorNl -lt 0 -or $priorNl -le $sectionStart) { return $liTagStart }
+    return $priorNl + 1
+}
+
+# ---------------------------------------------------------------------------
 # Helper: Add a brand-new guide entry to index.html (no existing pending anchor)
-# Appends a new <li> into the correct section list and also the mobile-only list
+# Inserts a new <li> under the correct category header in each section list.
 # ---------------------------------------------------------------------------
 function Add-ToIndexHtml {
     param(
@@ -385,6 +456,10 @@ function Add-ToIndexHtml {
         $sectionIds = @("onlineBankingContent", "onlineBankingContentMobile")
     }
 
+    # Determine the correct category header for this guide
+    $categoryHeader = Get-CategoryHeader -Title $GuideTitle -Section $Section
+    Write-Host "  Category: $categoryHeader" -ForegroundColor DarkGray
+
     $updatedContent = $indexContent
     $anyInserted = $false
 
@@ -406,11 +481,17 @@ function Add-ToIndexHtml {
             continue
         }
 
-        # Insert the new <li> just before the closing </ul> of the section
-        $insertPos = $sectionMatch.Groups[2].Index
+        # Find the category-aware insertion position
+        $insertPos = Get-CategoryInsertPosition -Content $updatedContent -SectionId $sectionId -CategoryName $categoryHeader
+
+        if ($insertPos -lt 0) {
+            Write-Host "  WARNING: Category '$categoryHeader' not found in '$sectionId'. Appending to end of section." -ForegroundColor Yellow
+            $insertPos = $sectionMatch.Groups[2].Index
+        }
+
         $updatedContent = $updatedContent.Substring(0, $insertPos) + $newLi + "`r`n" + $updatedContent.Substring($insertPos)
         $anyInserted = $true
-        Write-Host "  Queued insert into section: $sectionId" -ForegroundColor DarkGray
+        Write-Host "  Queued insert into section: $sectionId (under '$categoryHeader')" -ForegroundColor DarkGray
     }
 
     if ($anyInserted) {
@@ -418,7 +499,7 @@ function Add-ToIndexHtml {
             Set-Content -Path $IndexFile -Value $updatedContent -Encoding UTF8 -NoNewline
             Write-Host "  Added new entry to index.html: $GuideTitle" -ForegroundColor Green
         } else {
-            Write-Host "  [DRY RUN] Would add new entry to index.html: $GuideTitle" -ForegroundColor DarkYellow
+            Write-Host "  [DRY RUN] Would add new entry to index.html: $GuideTitle (under '$categoryHeader')" -ForegroundColor DarkYellow
         }
     }
 }
@@ -721,7 +802,7 @@ function Generate-GuideHtml {
 
         <!-- Tip -->
         <div class="tip-card">
-            <i class="bi bi-info-circle-fill card-icon"></i>
+            <span class="card-icon">&#x24D8;</span>
             <div class="tip-text">
                 <strong>$cardText</strong>$listHtml
             </div>
