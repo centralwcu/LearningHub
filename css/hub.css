@@ -212,6 +212,23 @@ a:hover, .btn-link:hover, .nav-link:hover { color: var(--brand-orange) !importan
   .section-mobile { order: 1; }
 }
 
+/* General / Business Banking Guides group headers */
+#businessGuidesSection {
+  order: 3;
+  margin-top: 2rem;
+}
+.guide-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand-orange);
+}
+.guide-group-header .bi { font-size: 1.2em; }
+
 
 /* Fullscreen Feedback Overlay */
 .feedback-fullscreen {
