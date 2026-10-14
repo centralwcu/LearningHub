@@ -100,10 +100,6 @@ searchInput.addEventListener('input', () => {
     document.getElementById('mobileBankingContent')?.classList.add('show');
     document.getElementById('mobileBankingContentMobile')?.classList.add('show');
     document.getElementById('onlineBankingContentMobile')?.classList.add('show');
-    document.getElementById('businessOnlineBankingContent')?.classList.add('show');
-    document.getElementById('businessMobileBankingContent')?.classList.add('show');
-    document.getElementById('businessMobileBankingContentMobile')?.classList.add('show');
-    document.getElementById('businessOnlineBankingContentMobile')?.classList.add('show');
   }
 });
 
@@ -215,10 +211,6 @@ document.getElementById('onlineBankingContent')?.addEventListener('transitionend
 document.getElementById('mobileBankingContent')?.addEventListener('transitionend', addFavoriteStars);
 document.getElementById('mobileBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
 document.getElementById('onlineBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
-document.getElementById('businessOnlineBankingContent')?.addEventListener('transitionend', addFavoriteStars);
-document.getElementById('businessMobileBankingContent')?.addEventListener('transitionend', addFavoriteStars);
-document.getElementById('businessMobileBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
-document.getElementById('businessOnlineBankingContentMobile')?.addEventListener('transitionend', addFavoriteStars);
 
 // Feedback modal
 const feedbackBtn   = document.getElementById('feedbackBtn');
